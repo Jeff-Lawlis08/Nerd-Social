@@ -19,34 +19,30 @@ Nerd Social
     - Giant Bomb
     - Data proof:
       ![Alt text](./app/assets/images/dataproof.png?raw=true)
-    ```html
-
-      `<img src="./app/assets/images/dataproof.png"/>`
-    ```
   - Data Modeling:
     - Models:
-     - Session
-      - Full Name
-      - Username
-      - Email
-      - Password
-      - Photo
-      - Bio
-     - Game
-      - Name
-      - Company
-      - Professional Reviews
-      <!-- - Trailer -->
-      - Description
-      - Release Date
-     - Review
-      - Date
-      - Content
-      - Rating
+      - Session
+        - Full Name
+        - Username
+        - Email
+        - Password
+        - Photo
+        - Bio
+      - Game
+        - Name
+        - Company
+        - Professional Reviews
+        - Trailer
+        - Description
+        - Release Date
+      - Review
+        - Date
+        - Content
+        - Rating
     - Collections:
-     - Users
-     - Games
-     - Reviews
+       - Users
+       - Games
+       - Reviews
 
   - Routes:
     - /Home
