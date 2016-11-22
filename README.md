@@ -1,12 +1,13 @@
 Nerd Social
 - Elevator Pitch:
+  It's Social Media... for Nerds!
   This app will allow a user to:
     - build a profile
     - search games
     - review/rate games
 - Features:
   - User profiles:
-    - users will be able to build an editable profile page that shows their highest rated games, as well as a list of all of their reviews
+    - users will be able to build an editable profile page that shows their highest rated games (with links to said games' pages), as well as a list of all of their reviews
     - users will be able to search for other users profiles as well as subscribe to other users reviews
   - Game Pages:
     - users will be able to view individual game pages with a list of reviews
@@ -16,6 +17,10 @@ Nerd Social
 
   - API:
     - Giant Bomb
+    - Data proof:
+    ```js
+      `<img src="./app/assets/images/dataproof.png"/>`
+    ```
   - Data Modeling:
     - Models:
      - Session
@@ -29,9 +34,13 @@ Nerd Social
       - Name
       - Company
       - Professional Reviews
-      - Trailer
+      <!-- - Trailer -->
       - Description
       - Release Date
+     - Review
+      - Date
+      - Content
+      - Rating
     - Collections:
      - Users
      - Games
