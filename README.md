@@ -18,7 +18,9 @@ Nerd Social
   - API:
     - Giant Bomb
     - Data proof:
+      ![Alt text](./app/assets/images/dataproof.png?raw=true)
     ```html
+
       `<img src="./app/assets/images/dataproof.png"/>`
     ```
   - Data Modeling:
