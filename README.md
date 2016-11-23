@@ -3,8 +3,8 @@ Nerd Social
   It's Social Media... for Nerds!
   This app will allow a user to:
     - build a profile
-    - search games
-    - review/rate games
+    - search video games
+    - review/rate video games
 - Features:
   - User profiles:
     - users will be able to build an editable profile page that shows their highest rated games (with links to said games' pages), as well as a list of all of their reviews
@@ -60,6 +60,13 @@ Nerd Social
       - Will allow users to view other users' profile page
   - Special Features:
     - Users will be able to upload a profile picture
+- Minimum Viable Product:
+  - user login/registration
+  - search for games via giant bomb
+  - individual game page
+  - game data from giant bomb
+  - the reviews from backendless
+  - write, edit and delete a review
 
 
 
