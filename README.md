@@ -63,10 +63,12 @@ Nerd Social
 - Minimum Viable Product:
   - user login/registration
   - search for games via giant bomb
-  - individual game page
-  - game data from giant bomb
-  - the reviews from backendless
-  - write, edit and delete a review
+  - individual game page:
+    - game data from giant bomb
+    - the reviews from backendless
+    - write, edit and delete a review
+- Wireframes:
+  ![Alt text](./app/assets/images/wireframes.png?raw=true)
 
 
 
