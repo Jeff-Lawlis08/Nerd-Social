@@ -68,7 +68,7 @@ Nerd Social
     - the reviews from backendless
     - write, edit and delete a review
 - Wireframes:
-  ![Alt text](./app/assets/images/wireframes.png?raw=true)
+  ![Alt text](./app/assets/images/wireframes.jpg?raw=true)
 
 
 
