@@ -10,8 +10,8 @@ export default Backbone.Model.extend({
   },
   idAttribute: 'objectId',
   defaults: {
+    fullName: '',
     name: '',
-    username: '',
     email: '',
     'user-token': ''
   },

@@ -17,7 +17,6 @@ export default React.createClass({
         <nav>
           <Link to='/login'>Login</Link>
           <Link to='/register'>Register</Link>
-          <input onClick={this.handleClick} type="button" value="Logout"/>
         </nav>
       );
     }

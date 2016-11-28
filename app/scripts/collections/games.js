@@ -1,18 +1,23 @@
 import Backbone from 'backbone';
+import $ from 'jquery';
+
 import Game from '../models/game';
 import config from '../config';
 
-export default Backbone.Collection({
+export default Backbone.Collection.extend({
   model: Game,
 
-  getGames(game){
+  getGames(search){
     $.ajax({
-      url: 'https://giantbomb.com/api/search',
+      url: 'https://www.giantbomb.com/api/search',
       data: {
-        query: game,
-        apiKey: config.api
+        query: search,
+        'api_key': config.api,
+        'resource_type': 'game',
+        'format': 'json'
       },
       success: (response)=>{
+        console.log(response);
         this.reset();
         this.add(response);
       }

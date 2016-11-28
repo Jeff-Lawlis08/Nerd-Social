@@ -1,4 +1,5 @@
 import React from 'react';
+import store from '../store';
 
 export default React.createClass({
   render(){
@@ -10,6 +11,9 @@ export default React.createClass({
     );
   },
   handleSubmit(e){
+    e.preventDefault();
     let search = this.refs.search.value;
+    store.games.getGames(search);
+    console.log(search);
   }
 });

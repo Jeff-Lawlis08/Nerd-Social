@@ -1,4 +1,4 @@
 docs
 .sass-cache
 node_modules
-config
+./app/scripts/config.js
