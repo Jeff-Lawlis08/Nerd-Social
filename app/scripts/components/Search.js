@@ -11,11 +11,14 @@ export default React.createClass({
   componentDidMount(){
     store.games.on('update change', this.updateState);
   },
-  componentWillUnMount(){
+  componentWillMount(){
     store.games.on('update change', this.updateState);
   },
+  componentWillUnMount(){
+    store.games.off('update change', this.updateState);
+  },
   render(){
-    // console.log(this.state);
+    // console.log(store.games);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>

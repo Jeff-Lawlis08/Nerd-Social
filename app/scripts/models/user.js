@@ -8,7 +8,7 @@ export default Backbone.Model.extend({
       this.set({'user-token': window.localStorage.getItem('user-token')});
     }
   },
-  // idAttribute: 'objectId',
+  idAttribute: 'ownerId',
   defaults: {
     fullName: '',
     name: '',
@@ -32,6 +32,7 @@ export default Backbone.Model.extend({
         success: () => {
           this.set({login, password});
           window.localStorage.setItem('user-token', this.get('user-token'));
+          window.localStorage.setItem('ownerId', this.get('ownerId'));
           browserHistory.push('/search');
         }
       }

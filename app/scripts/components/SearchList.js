@@ -3,9 +3,9 @@ import SearchListItem from './SearchListItem';
 
 export default React.createClass({
   render(){
-    console.log(this.props.games.games);
+    // console.log(this.props.games.games);
     let allGames = this.props.games.games.map((game, i, arr)=>{
-      console.log(game);
+      // console.log(game);
       return (
         <SearchListItem key={i} game={game}/>
       );
