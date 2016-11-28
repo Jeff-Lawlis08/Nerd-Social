@@ -5,6 +5,7 @@ import App from './components/App';
 import Login from './components/Login';
 import Register from './components/Register';
 import Search from './components/Search';
+import GamePage from './components/GamePage';
 
 const router = (
   <Router history={browserHistory}>
@@ -12,6 +13,7 @@ const router = (
       <Route path='/login' component = {Login}/>
       <Route path='/register' component = {Register}/>
       <Route path='/search' component = {Search}/>
+      <Route path='/game/:id' component = {GamePage}/>
     </Route>
   </Router>
 );

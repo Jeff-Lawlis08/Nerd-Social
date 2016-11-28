@@ -8,7 +8,7 @@ export default Backbone.Model.extend({
       this.set({'user-token': window.localStorage.getItem('user-token')});
     }
   },
-  idAttribute: 'objectId',
+  // idAttribute: 'objectId',
   defaults: {
     fullName: '',
     name: '',

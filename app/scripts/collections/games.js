@@ -10,16 +10,22 @@ export default Backbone.Collection.extend({
   getGames(search){
     $.ajax({
       url: 'https://www.giantbomb.com/api/search',
+      dataType: 'jsonp',
+      jsonp: 'json_callback',
       data: {
         query: search,
         'api_key': config.api,
         'resource_type': 'game',
-        'format': 'json'
+        'format': 'jsonp'
       },
       success: (response)=>{
-        console.log(response);
+        // console.log(response.results);
         this.reset();
-        this.add(response);
+        this.add(response.results);
+      },
+      parse: (data)=>{
+        // console.log(data.results);
+        return data.results;
       }
     });
   }
