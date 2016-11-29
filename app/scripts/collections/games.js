@@ -39,7 +39,7 @@ export default Backbone.Collection.extend({
         'format': 'jsonp'
       },
       success: (response)=>{
-        console.log(response.results);
+        // console.log(response.results);
         this.add(response.results);
       },
   });

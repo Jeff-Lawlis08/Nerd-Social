@@ -1,5 +1,8 @@
 import React from 'react';
 import store from '../store';
+// import Backbone from 'backbone';
+import _ from 'underscore';
+import ReviewItems from './ReviewItems';
 
 export default React.createClass({
   getInitialState(){
@@ -11,15 +14,22 @@ export default React.createClass({
     store.reviews.fetch();
     store.reviews.on('update change', this.updateState);
   },
-  componentDidMount(){
+  componentWillUnmount(){
     store.reviews.off('update change', this.updateState);
   },
   render(){
-    // console.log(store.reviews);
+  let reviewList = this.state.reviews.filter((review, i, arr)=>{
+      if(review.gameId===this.props.game.id){
+        console.log(review);
+        return review
+      }
+    }).map((review, i, arr)=>{
+      return <ReviewItems key={i} review={review}/>
+    });
     return (
-      <div>
-
-      </div>
+      <ul>
+        {reviewList}
+      </ul>
     );
   },
   updateState(){

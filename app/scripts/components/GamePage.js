@@ -13,7 +13,7 @@ export default React.createClass({
   },
   componentDidMount(){
     let displayGame = store.games.get(this.props.params.id);
-    console.log(displayGame);
+    // console.log(displayGame);
 
     if(displayGame===undefined){
       displayGame = store.games.getGameById(this.props.params.id);
@@ -26,7 +26,7 @@ export default React.createClass({
     store.games.off('update change', this.updateState);
   },
   render(){
-    console.log(this.state.game);
+    // console.log(this.state.game);
     if(this.state.game.description){
     const regex = /(<([^>]+)>)/ig
     let body = this.state.game.description.replace(regex, " ");
@@ -35,7 +35,7 @@ export default React.createClass({
         <h3>{this.state.game.name}</h3>
         <p>{body}</p>
         <ReviewForm game={this.state.game}/>
-        <Reviews />
+        <Reviews game={this.state.game}/>
       </div>
     );
   }else{
