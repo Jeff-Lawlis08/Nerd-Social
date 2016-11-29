@@ -3,6 +3,7 @@ import store from '../store';
 // import Backbone from 'backbone';
 import _ from 'underscore';
 import ReviewItems from './ReviewItems';
+import ReviewEdit from './ReviewEdit';
 
 export default React.createClass({
   getInitialState(){
@@ -24,14 +25,22 @@ export default React.createClass({
         return review
       }
     }).map((review, i, arr)=>{
-      return <ReviewItems key={i} review={review}/>
+      return (
+        <ReviewItems key={i} review={review}/>
+      )
     });
+    // if(reviewList.refs.edit.unchecked){
     return (
       <ul>
         {reviewList}
       </ul>
     );
-  },
+  // } else {
+  //   return (
+  //     <ReviewEdit/>
+  //   );
+  // }
+},
   updateState(){
     this.setState({reviews: store.reviews.toJSON()})
   }

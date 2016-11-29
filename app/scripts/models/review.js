@@ -2,5 +2,8 @@ import Backbone from 'backbone';
 
 export default Backbone.Model.extend({
   idAttribute: 'objectId',
-  timestamp: new Date()
+  timestamp: new Date(),
+  // deleteReview(){
+  //   this.destroy();
+  // }
 });
