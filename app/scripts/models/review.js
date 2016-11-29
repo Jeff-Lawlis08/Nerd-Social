@@ -3,7 +3,8 @@ import Backbone from 'backbone';
 export default Backbone.Model.extend({
   idAttribute: 'objectId',
   timestamp: new Date(),
-  // deleteReview(){
-  //   this.destroy();
+
+  // editReview({title, body, rating, gameId, ownerId, id}){
+  //   this.save({});
   // }
 });

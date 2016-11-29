@@ -21,7 +21,6 @@ export default React.createClass({
   render(){
   let reviewList = this.state.reviews.filter((review, i, arr)=>{
       if(review.gameId===this.props.game.id){
-        console.log(review);
         return review
       }
     }).map((review, i, arr)=>{
@@ -29,17 +28,11 @@ export default React.createClass({
         <ReviewItems key={i} review={review}/>
       )
     });
-    // if(reviewList.refs.edit.unchecked){
     return (
       <ul>
         {reviewList}
       </ul>
     );
-  // } else {
-  //   return (
-  //     <ReviewEdit/>
-  //   );
-  // }
 },
   updateState(){
     this.setState({reviews: store.reviews.toJSON()})

@@ -17,7 +17,8 @@ export default React.createClass({
     let title=this.refs.title.value;
     let body=this.refs.body.value;
     let rating=this.refs.rating.value;
-    let gameId = this.props.game.id
-    store.reviews.addReview({title, body, rating, gameId});
+    let gameId = this.props.game.id;
+    let timestamp = new Date();
+    store.reviews.addReview({title, body, rating, gameId, timestamp});
   }
 });
