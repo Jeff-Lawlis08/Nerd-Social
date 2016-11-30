@@ -7,18 +7,16 @@ import Reviews from './Reviews';
 
 export default React.createClass({
   getInitialState(){
-    return {
-      game: {}
+    let displayGame = store.games.get(this.props.params.id);
+    if(displayGame) {
+      return {game: displayGame.toJSON()}
+    } else {
+      return {game: {}}
     }
   },
   componentDidMount(){
-    let displayGame = store.games.get(this.props.params.id);
-    // console.log(displayGame);
 
-    if(displayGame===undefined){
-      displayGame = store.games.getGameById(this.props.params.id);
-      // console.log(displayGame);
-    }
+    let displayGame = store.games.getGameById(this.props.params.id);
     store.games.add({game: displayGame});
     store.games.on('update change', this.updateState);
   },
@@ -26,7 +24,6 @@ export default React.createClass({
     store.games.off('update change', this.updateState);
   },
   render(){
-    console.log(this.state.game);
     let body;
     let photo;
     if(this.state.game.description){

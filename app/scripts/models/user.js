@@ -8,12 +8,14 @@ export default Backbone.Model.extend({
       this.set({'user-token': window.localStorage.getItem('user-token')});
     }
   },
+  url: 'https://api.backendless.com/v1/data/users',
   idAttribute: 'ownerId',
   defaults: {
     fullName: '',
     name: '',
     email: '',
-    'user-token': ''
+    'user-token': '',
+    recent: []
   },
   register(name, fullName, email, password){
     this.save({name, fullName, email, password},
@@ -47,5 +49,12 @@ export default Backbone.Model.extend({
       browserHistory.push('/login');
       }
     });
-  }
+  },
+  // addRecents(game){
+  //   this.save({recent: this.get('recent').concat(game)});
+  //   if(this.get('recent').length>5){
+  //     this.save({recent: this.get('recent').pop(recent[5])});
+  //   }
+  //   console.log(this.get('recent'));
+  // }
 });

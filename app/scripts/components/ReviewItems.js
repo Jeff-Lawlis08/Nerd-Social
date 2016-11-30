@@ -7,21 +7,38 @@ export default React.createClass({
   getInitialState(){
     return {
       editing: false,
+      owned: false
     }
   },
+  componentDidMount(){
+    if(window.localStorage.ownerId===this.props.review.ownerId){
+      this.setState({owned: true})
+  }
+},
   render(){
-    if(this.state.editing===false){
+    // console.log(this.props.review);
+    if(this.state.editing===false && this.state.owned===false){
+      return (
+      <li>
+        <h6>{this.props.review.title}</h6>
+        <p>{this.props.review.body}</p>
+        <span>{this.props.review.rating}</span>
+        <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
+      </li>
+      );
+    }
+    else if(this.state.editing===false && this.state.owned===true){
     return (
       <li>
         <h6>{this.props.review.title}</h6>
         <p>{this.props.review.body}</p>
         <span>{this.props.review.rating}</span>
-        <span>`${moment(this.props.review.timestamp).format('LLLL')}`</span>
+        <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
         <input onClick={this.handleEdit} type="button" value="edit"/>
         <input onClick={this.handleDelete} type="button" value="Delete"/>
       </li>
     );
-  } else if(this.state){
+  } else if(this.state.editing=true){
       return (
         <form onSubmit={this.handleSubmit}>
           <span>Edit your review</span>

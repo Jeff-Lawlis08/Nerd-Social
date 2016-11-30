@@ -1,18 +1,22 @@
 import React from 'react';
 import store from '../store';
-// import Backbone from 'backbone';
 import _ from 'underscore';
 import ReviewItems from './ReviewItems';
-import ReviewEdit from './ReviewEdit';
 
 export default React.createClass({
   getInitialState(){
+    if(store.reviews.length===0){
     return {
-      reviews: store.reviews.toJSON()
+      reviews: []
     }
+  } else {
+    return {reviews: store.reviews.toJSON()}
+  }
   },
   componentDidMount(){
     store.reviews.fetch();
+    // store.users.fetch();
+    // console.log(store.users);
     store.reviews.on('update change', this.updateState);
   },
   componentWillUnmount(){
@@ -35,6 +39,9 @@ export default React.createClass({
     );
 },
   updateState(){
-    this.setState({reviews: store.reviews.toJSON()})
+    this.setState({
+      reviews: store.reviews.toJSON(),
+      // users: store.users.toJSON()
+    });
   }
 });

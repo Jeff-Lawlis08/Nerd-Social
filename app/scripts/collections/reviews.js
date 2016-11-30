@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import Review from '../models/review';
 import {browserHistory} from 'react-router';
+import _ from 'underscore';
 
 export default Backbone.Collection.extend({
   model: Review,
@@ -20,5 +21,7 @@ export default Backbone.Collection.extend({
     // console.log(data.data);
     return data.data;
   },
-
+  // recentReviews(){
+  //   _.sortBy(this, this.get(timestamp));
+  // }
 });

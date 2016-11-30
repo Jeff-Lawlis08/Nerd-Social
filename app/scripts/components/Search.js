@@ -5,27 +5,32 @@ import SearchList from './SearchList';
 export default React.createClass({
   getInitialState(){
     return {
-      games: store.games.toJSON()
+      games: store.games.toJSON(),
+      reviews: store.reviews.toJSON()
     }
   },
   componentDidMount(){
-    store.games.on('update change', this.updateState);
+    store.reviews.fetch();
+    store.games.on('update change', this.updateGames);
+    store.reviews.on('update change', this.updateGames);
   },
-  componentWillMount(){
-    store.games.on('update change', this.updateState);
-  },
-  componentWillUnMount(){
-    store.games.off('update change', this.updateState);
+  // componentWillMount(){
+  //   store.games.on('update change', this.updateGames);
+  //   store.reviews.on('update change', this.updateGames);
+  // },
+  componentWillUnmount(){
+    store.games.off('update change', this.updateGames);
+    store.reviews.off('update change', this.updateGames);
   },
   render(){
-    // console.log(store.games);
+    // console.log(this.state.reviews);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
           <input ref="search" type="text" placeholder="search"/>
           <input type="submit" value="Search"/>
         </form>
-        <SearchList games={this.state}/>
+        <SearchList games={this.state.games} reviews={this.state.reviews}/>
       </div>
     );
   },
@@ -35,7 +40,7 @@ export default React.createClass({
     store.games.getGames(search);
     // console.log(search);
   },
-  updateState(){
+  updateGames(){
     this.setState({games: store.games.toJSON()})
   }
 });
