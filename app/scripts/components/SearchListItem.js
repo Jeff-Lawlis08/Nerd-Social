@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import store from '../store';
+// import store from '../store';
 
 export default React.createClass({
   render(){
@@ -8,7 +8,6 @@ export default React.createClass({
     if(this.props.game.image){
       photo = this.props.game.image.thumb_url;
     }
-    // if(this.props.game){
     return (
       <Link to={`/game/${this.props.game.id}`}>
         <li>
@@ -17,13 +16,5 @@ export default React.createClass({
         </li>
       </Link>
       );
-    // } else {
-    //   return (
-    //
-    //   )
-    // }
   },
-  // handleClick(e){
-  //   store.session.addRecents(this.props.game);
-  // }
 });

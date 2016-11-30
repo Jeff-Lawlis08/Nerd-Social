@@ -6,19 +6,20 @@ import ReviewItems from './ReviewItems';
 export default React.createClass({
   render(){
     console.log(this.props);
-    let allGames;
+    let allItems;
     if(this.props.games.length>0){
-      allGames = this.props.games.map((game, i, arr)=>{
+      allItems = this.props.games.map((game, i, arr)=>{
       return (
         <SearchListItem key={i} game={game}/>
       );
     });
-  } else {
-    allGames = this.props.reviews.map((review, i, arr)=>{
+  }
+  else {
+    allItems = this.props.reviews.map((review, i, arr)=>{
       return (
-        <div>
-        {review.gameName}
-        <ReviewItems key={i} review={review}/>
+        <div key={i} className="recent-reviews">
+          <h4>{review.gameName}</h4>
+          <ReviewItems review={review} users={this.props.users}/>
         </div>
       );
     });
@@ -26,7 +27,7 @@ export default React.createClass({
     return (
       <div>
         <ul className="game-list">
-        {allGames}
+        {allItems}
         </ul>
       </div>
     );

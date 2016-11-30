@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../store';
 import ReviewEdit from './ReviewEdit';
 import moment from 'moment';
+import _ from 'underscore';
 
 export default React.createClass({
   getInitialState(){
@@ -16,10 +17,14 @@ export default React.createClass({
   }
 },
   render(){
-    // console.log(this.props.review);
+    let user = _.find(this.props.users, (user)=>{
+      return user.ownerId===this.props.review.ownerId;
+    })
+    console.log(user);
     if(this.state.editing===false && this.state.owned===false){
       return (
-      <li>
+      <li className="review-items">
+        <h5>{user.name}</h5>
         <h6>{this.props.review.title}</h6>
         <p>{this.props.review.body}</p>
         <span>{this.props.review.rating}</span>
@@ -30,6 +35,7 @@ export default React.createClass({
     else if(this.state.editing===false && this.state.owned===true){
     return (
       <li>
+        <h5>{user.name}</h5>
         <h6>{this.props.review.title}</h6>
         <p>{this.props.review.body}</p>
         <span>{this.props.review.rating}</span>

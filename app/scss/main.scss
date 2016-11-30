@@ -1,8 +1,4 @@
-#container{
-  .game-info{
-    p{
-    height: 20rem;
-    overflow: scroll;
-  }
-  }
-}
+@import "header";
+@import "login-register";
+@import "search";
+@import "gamepage";
