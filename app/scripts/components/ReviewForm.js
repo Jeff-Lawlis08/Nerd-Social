@@ -7,7 +7,7 @@ export default React.createClass({
       <form onSubmit={this.handleSubmit}>
         <input type="text" ref="title" placeholder="Title"/>
         <textarea ref="body" placeholder="Body"/>
-        <input type="number" ref="rating" placeholder="rating"/>
+        <input type="number" max="5" min="1" ref="rating" placeholder="rating"/>
         <input type="submit" value="submit"/>
       </form>
     );
@@ -16,7 +16,14 @@ export default React.createClass({
     e.preventDefault();
     let title=this.refs.title.value;
     let body=this.refs.body.value;
-    let rating=this.refs.rating.value;
+    let rating;
+    if(this.refs.rating.value>5) {
+      rating = 5;
+    } else if(this.refs.rating.value<1){
+      rating = 1;
+    } else {
+      rating = this.refs.rating.value;
+    }
     let gameId = this.props.game.id;
     let gameName = this.props.game.name;
     let timestamp = new Date();

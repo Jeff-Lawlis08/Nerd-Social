@@ -27,7 +27,7 @@ export default React.createClass({
     store.users.off('update change', this.updateGames);
   },
   render(){
-    console.log(this.state);
+    // console.log(this.state);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>

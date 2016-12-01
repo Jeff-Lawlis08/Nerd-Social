@@ -20,7 +20,7 @@ export default React.createClass({
     let user = _.find(this.props.users, (user)=>{
       return user.ownerId===this.props.review.ownerId;
     })
-    console.log(user);
+    // console.log(user);
     if(this.state.editing===false && this.state.owned===false){
       return (
       <li className="review-items">

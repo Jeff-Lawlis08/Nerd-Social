@@ -6,8 +6,8 @@ render(){
   return(
     <div>
       <header>
-        <h1>Nerd Social</h1>
         <Nav/>
+        <h1>Nerd Social</h1>
         </header>
         {this.props.children}
     </div>

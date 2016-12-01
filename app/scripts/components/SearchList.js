@@ -2,10 +2,11 @@ import React from 'react';
 import SearchListItem from './SearchListItem';
 import _ from 'underscore';
 import ReviewItems from './ReviewItems';
+import {Link} from 'react-router';
 
 export default React.createClass({
   render(){
-    console.log(this.props);
+    // console.log(this.props);
     let allItems;
     if(this.props.games.length>0){
       allItems = this.props.games.map((game, i, arr)=>{
@@ -18,7 +19,9 @@ export default React.createClass({
     allItems = this.props.reviews.map((review, i, arr)=>{
       return (
         <div key={i} className="recent-reviews">
-          <h4>{review.gameName}</h4>
+          <Link to={`/game/${review.gameId}`}>
+            <h4>{review.gameName}</h4>
+          </Link>
           <ReviewItems review={review} users={this.props.users}/>
         </div>
       );

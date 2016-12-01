@@ -7,7 +7,10 @@ export default React.createClass({
       if(window.localStorage.getItem('user-token')){
       return(
         <nav>
-          <Link to='/search'>Search</Link>
+          <Link to='/search'>
+            <span>Search</span>
+          <i className="fa fa-search" aria-hidden="true"></i>
+          </Link>
           <input onClick={this.handleClick} type="button" value="Logout"/>
         </nav>
 
