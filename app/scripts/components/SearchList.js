@@ -16,7 +16,8 @@ export default React.createClass({
     });
   }
   else {
-    allItems = this.props.reviews.map((review, i, arr)=>{
+    let maxItems = _.first(this.props.reviews, 5)
+    allItems = maxItems.map((review, i, arr)=>{
       return (
         <div key={i} className="recent-reviews">
           <Link to={`/game/${review.gameId}`}>

@@ -45,12 +45,11 @@ export default Backbone.Collection.extend({
   });
 },
   cleanOverview(description){
-    console.log(description);
+    // console.log(description);
     const regex = /(<([^>]+)>)/ig;
     let re = /<h2>Overview<\/h2>(.+?)<h2>/;
     let body = description.match(re)[1];
-    body = body.replace(regex, "");
-    // .replace('&amp;', " ");
+    body = body.replace(regex, "").replace('&amp;', " ");
     return body;
   },
   // cleanRegional(description){

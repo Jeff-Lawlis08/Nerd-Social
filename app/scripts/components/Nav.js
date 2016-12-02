@@ -8,18 +8,18 @@ export default React.createClass({
       return(
         <nav>
           <Link to='/search'>
-            <span>Search</span>
+            <span>SEARCH</span>
           <i className="fa fa-search" aria-hidden="true"></i>
           </Link>
-          <input onClick={this.handleClick} type="button" value="Logout"/>
+          <input onClick={this.handleClick} type="button" value="LOGOUT"/>
         </nav>
 
       );
     } else {
       return(
         <nav>
-          <Link to='/login'>Login</Link>
-          <Link to='/register'>Register</Link>
+          <Link to='/login'>LOGIN</Link>
+          <Link to='/register'>REGISTER</Link>
         </nav>
       );
     }
