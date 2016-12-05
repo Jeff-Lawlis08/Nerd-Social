@@ -20,11 +20,26 @@ export default React.createClass({
   }
 },
   render(){
-    let user = _.find(this.props.users, (user)=>{
-      return user.ownerId===this.props.review.ownerId;
-    })
-    console.log(user);
-
+    let user;
+    let likes;
+    let dislikes;
+      if(this.props.review.likes===null){
+        likes = 0;
+      } else {
+        likes = this.props.review.likes;
+      }
+      if(this.props.review.dislikes===null){
+        dislikes=0;
+      } else {
+        dislikes = this.props.review.dislikes
+      }
+      if(this.props.users.length>1){
+        user = _.find(this.props.users, (user)=>{
+        return user.ownerId===this.props.review.ownerId;
+      });
+    } else {
+      user = this.props.users
+    }
     if(this.state.editing===false && this.state.owned===false){
           if (user) {return (
       <li className="review-items">
@@ -32,6 +47,14 @@ export default React.createClass({
         <span>Rating: {this.props.review.rating}</span>
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
+        <div className="like-dislike">
+          <span><i className="fa fa-thumbs-up" aria-hidden="true"></i>:
+          {likes}</span>
+          <input ref="likes" onClick={this.handleLike} type="button" value="like"/>
+          <span><i className="fa fa-thumbs-down" aria-hidden="true"></i>:
+          {dislikes}</span>
+          <input ref="dislikes" onClick={this.handleDislike} type="button" value="dislike"/>
+        </div>
       </li>
       );
     } else { return null}
@@ -43,6 +66,12 @@ export default React.createClass({
         <span>Rating: {this.props.review.rating}</span>
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
+        <div className="like-dislike">
+          <span><i className="fa fa-thumbs-up" aria-hidden="true"></i>:
+          {likes}</span>
+          <span><i className="fa fa-thumbs-down" aria-hidden="true"></i>:
+          {dislikes}</span>
+        </div>
         <input onClick={this.handleEdit} type="button" value="Edit"/>
         <input onClick={this.handleDelete} type="button" value="Delete"/>
       </li>
@@ -85,5 +114,15 @@ export default React.createClass({
     this.setState({
       editing: false
     })
+  },
+  handleLike(e){
+    store.reviews.like(this.props.review.objectId);
+    this.refs.likes.disabled = true;
+    this.refs.dislikes.disabled = true;
+  },
+  handleDislike(e){
+    store.reviews.dislike(this.props.review.objectId);
+    this.refs.dislikes.disabled = true;
+    this.refs.likes.disabled = true;
   }
 });

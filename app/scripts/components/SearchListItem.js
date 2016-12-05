@@ -7,11 +7,10 @@ export default React.createClass({
     let photo;
     let description;
     if(this.props.game.image){
-      photo = this.props.game.image.thumb_url;
+      photo = this.props.game.image.medium_url;
     } else {
       photo = '../../assets/images/no-thumb.jpg'
     }
-    console.log(this.props.game.description);
     if(this.props.game.description){
       description = store.games.cleanListItem(this.props.game.description);
     } else {

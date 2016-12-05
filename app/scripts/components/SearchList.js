@@ -16,8 +16,7 @@ export default React.createClass({
           <SearchListItem key={i} game={game}/>
       );
     });
-  }
-  else {
+  } else {
     listTitle = 'Recent Reviews';
     let maxItems = _.first(this.props.reviews, 5)
     allItems = maxItems.map((review, i, arr)=>{
@@ -29,12 +28,6 @@ export default React.createClass({
       );
     });
   }
-      // let listTitle;
-      // if(this.props.game.length>3){
-      //   listTitle = 'Games';
-      // } else {
-      //   listTitle = 'Recent Reviews';
-      // }
     return (
       <main>
         <h3>{listTitle}</h3>

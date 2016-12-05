@@ -15,6 +15,7 @@ export default React.createClass({
     e.preventDefault();
     let search = this.refs.search.value;
     store.games.getGames(search);
+    store.users.searchUsers(search);
     this.refs.search.value=''
   },
 });

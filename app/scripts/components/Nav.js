@@ -8,7 +8,13 @@ export default React.createClass({
       return(
         <nav>
           <h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1>
-          <input onClick={this.handleClick} type="button" value="LOGOUT"/>
+          <div className="nav-buttons">
+            <Link to={`/user/${window.localStorage.getItem('ownerId')}`}>
+              <span>My Profile </span>
+              <i className="fa fa-user" aria-hidden="true"></i>
+            </Link>
+            <input onClick={this.handleClick} type="button" value="LOGOUT"/>
+          </div>
         </nav>
 
       );

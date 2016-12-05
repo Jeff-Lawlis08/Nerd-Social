@@ -9,15 +9,25 @@ nav {
   h1 {
     width: 30%;
     display: inline-block;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    .fa-gamepad{
+      font-size: 20px;
+    }
+  }
+  .nav-buttons{
+    float: right;
+  a {
+    color: #037E8C;
   }
   input {
-    float: right;
     margin: 1rem 0.5rem;
     color: #037E8C;
     border: none;
     background-color: #F2F2F3;
   }
+}
 }
 .bg-container{
   width: 100%;

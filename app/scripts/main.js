@@ -9,7 +9,7 @@ const container = document.getElementById('container');
 
 $(document).ajaxSend((evt, xhr, opts) => {
   if(opts.url.indexOf('bomb')===-1) {
-    console.log('intercepted');
+    // console.log('intercepted');
 
     xhr.setRequestHeader('application-id', config.appId);
     xhr.setRequestHeader('secret-key', config.secret);

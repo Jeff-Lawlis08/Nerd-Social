@@ -42,6 +42,7 @@ export default React.createClass({
     let gameName = this.props.game.name;
     let timestamp = new Date();
     store.reviews.addReview({body, rating, gameId, gameName, timestamp});
-
+    this.refs.body.value='';
+    this.refs.rating.value='';
 }
 });
