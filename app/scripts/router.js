@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Search from './components/Search';
 import GamePage from './components/GamePage';
+import UserProfile from './components/UserProfile';
 
 const router = (
   <Router history={browserHistory}>
@@ -14,6 +15,7 @@ const router = (
       <Route path='/register' component = {Register}/>
       <Route path='/search' component = {Search}/>
       <Route path='/game/:id' component = {GamePage}/>
+      <Route path='/user/:id' component = {UserProfile}/>
     </Route>
   </Router>
 );

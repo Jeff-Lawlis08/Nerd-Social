@@ -8,6 +8,7 @@ import Review from './models/review';
 
 export default {
   session: new User(),
+  user: new User(),
   users: new Users(),
   games: new Games(),
   reviews: new Reviews(),

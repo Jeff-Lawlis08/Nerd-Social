@@ -1,6 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router';
+
 import store from '../store';
 import ReviewEdit from './ReviewEdit';
+
 import moment from 'moment';
 import _ from 'underscore';
 
@@ -20,12 +23,12 @@ export default React.createClass({
     let user = _.find(this.props.users, (user)=>{
       return user.ownerId===this.props.review.ownerId;
     })
-    // console.log(user, user.name);
+    console.log(user);
 
     if(this.state.editing===false && this.state.owned===false){
           if (user) {return (
       <li className="review-items">
-        <h5>{user.name}</h5>
+        <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
         <span>Rating: {this.props.review.rating}</span>
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
@@ -36,7 +39,7 @@ export default React.createClass({
     else if(this.state.editing===false && this.state.owned===true){
     return (
       <li className="review-items">
-        <h5>{user.name}</h5>
+        <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
         <span>Rating: {this.props.review.rating}</span>
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
