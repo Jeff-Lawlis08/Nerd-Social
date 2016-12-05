@@ -15,8 +15,8 @@ export default Backbone.Model.extend({
     name: '',
     email: '',
     'user-token': '',
-    recent: []
-  },
+    // authenticated: false,
+    },
   register(name, fullName, email, password){
     this.save({name, fullName, email, password},
       {
@@ -30,9 +30,10 @@ export default Backbone.Model.extend({
     this.save(
       {login, password},
       {
+        type: 'POST',
         url: 'https://api.backendless.com/v1/users/login',
         success: () => {
-          this.set({login, password});
+          this.set({login});
           window.localStorage.setItem('user-token', this.get('user-token'));
           window.localStorage.setItem('ownerId', this.get('ownerId'));
           browserHistory.push('/search');
@@ -50,11 +51,9 @@ export default Backbone.Model.extend({
       }
     });
   },
-  // addRecents(game){
-  //   this.save({recent: this.get('recent').concat(game)});
-  //   if(this.get('recent').length>5){
-  //     this.save({recent: this.get('recent').pop(recent[5])});
+  // authenticate(){
+  //   if(window.localStorage.getItem('user-token')){
+  //     this.authenticated = true;
   //   }
-  //   console.log(this.get('recent'));
   // }
 });

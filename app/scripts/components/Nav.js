@@ -7,10 +7,7 @@ export default React.createClass({
       if(window.localStorage.getItem('user-token')){
       return(
         <nav>
-          <Link to='/search'>
-            <span>SEARCH</span>
-          <i className="fa fa-search" aria-hidden="true"></i>
-          </Link>
+          <h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1>
           <input onClick={this.handleClick} type="button" value="LOGOUT"/>
         </nav>
 
@@ -18,8 +15,7 @@ export default React.createClass({
     } else {
       return(
         <nav>
-          <Link to='/login'>LOGIN</Link>
-          <Link to='/register'>REGISTER</Link>
+          <h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1>
         </nav>
       );
     }
@@ -28,3 +24,5 @@ export default React.createClass({
       store.session.logout();
     }
 });
+// <Link to='/login'>LOGIN</Link>
+// <Link to='/register'>REGISTER</Link>

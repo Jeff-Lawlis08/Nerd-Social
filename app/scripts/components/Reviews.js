@@ -37,7 +37,7 @@ export default React.createClass({
       )
     });
     return (
-      <ul>
+      <ul className="user-reviews">
         {reviewList}
       </ul>
     );

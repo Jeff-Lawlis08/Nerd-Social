@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
+import {browserHistory} from 'react-router';
 
 import Game from '../models/game';
 import config from '../config';
@@ -22,6 +23,7 @@ export default Backbone.Collection.extend({
         // console.log(response.results);
         this.reset();
         this.add(this.parse(response));
+        browserHistory.push('/search')
       },
     });
   },
@@ -52,6 +54,11 @@ export default Backbone.Collection.extend({
     body = body.replace(regex, "").replace('&amp;', " ");
     return body;
   },
+  cleanListItem(description){
+    const regex = /(<([^>]+)>)/ig;
+    let body = description.replace(regex, " ").replace('Overview', " ");
+    return body;
+  }
   // cleanRegional(description){
   //   console.log(description);
   //   const regex = /(<([^>]+)>)/ig;

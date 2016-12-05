@@ -1,14 +1,14 @@
 import React from 'react';
 import Nav from './Nav';
+import SearchBar from './SearchBar';
+import {browserHistory} from 'react-router';
+import Header from './Header';
 
 export default React.createClass({
 render(){
   return(
     <div>
-      <header>
-        <Nav/>
-        <h1>Nerd Social</h1>
-        </header>
+      <Header/>
         {this.props.children}
     </div>
   );

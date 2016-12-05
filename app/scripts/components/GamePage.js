@@ -4,6 +4,7 @@ import _ from 'underscore';
 
 import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
+import SearchBar from './SearchBar';
 
 export default React.createClass({
   getInitialState(){
@@ -33,35 +34,26 @@ export default React.createClass({
     let releases;
     if(this.state.game.description){
     overviewBody = store.games.cleanOverview(this.state.game.description);
-    // regionalDiff = store.games.cleanRegional(this.state.game.description);
-    // story = store.games.cleanStory(this.state.game.description);
-    // gameplay = store.games.cleanGameplay(this.state.game.description);
-    // releases = store.games.cleanReleases(this.state.game.description);
-
   }
     if(this.state.game.image){
       photo = this.state.game.image.medium_url;
     }
     return (
-      <div className="game-info">
-        <h3>{this.state.game.name}</h3>
-        <img src={photo}/>
-        <h6>Overview</h6>
-        <p>{overviewBody}</p>
+      <div className="gamepage-contents">
+        <div className="pic-and-info">
+          <img src={photo}/>
+          <div className="game-info">
+            <h3>{this.state.game.name}</h3>
+            <h6>Overview</h6>
+            <p>{overviewBody}</p>
+          </div>
+        </div>
         <ReviewForm game={this.state.game}/>
+        <h4>Reviews</h4>
         <Reviews game={this.state.game}/>
-      </div>
+        </div>
     );
   },
-  // <h6>Regional Differences</h6>
-  // <p>{regionalDiff}</p>
-  // <h6>Story</h6>
-  // <p>{story}</p>
-  // <h6>Gameplay</h6>
-  // <p>{gameplay}</p>
-  // <h6>Releases</h6>
-  // <p>{releases}</p>
-
   updateState(){
     let displayGame = store.games.get(this.props.params.id);
     if(displayGame) {
