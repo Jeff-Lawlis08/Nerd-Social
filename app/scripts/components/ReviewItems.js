@@ -23,6 +23,8 @@ export default React.createClass({
     let user;
     let likes;
     let dislikes;
+    console.log(this.props.review.rating);
+    let stars = store.reviews.ratingStars(this.props.review.rating);
       if(this.props.review.likes===null){
         likes = 0;
       } else {
@@ -44,16 +46,16 @@ export default React.createClass({
           if (user) {return (
       <li className="review-items">
         <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
-        <span>Rating: {this.props.review.rating}</span>
+        <span>Rating: {stars}</span>
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
         <div className="like-dislike">
-          <span><i className="fa fa-thumbs-up" aria-hidden="true"></i>:
-          {likes}</span>
-          <input ref="likes" onClick={this.handleLike} type="button" value="like"/>
-          <span><i className="fa fa-thumbs-down" aria-hidden="true"></i>:
-          {dislikes}</span>
-          <input ref="dislikes" onClick={this.handleDislike} type="button" value="dislike"/>
+          <input ref="likes" name="likes" onChange={this.handleLike} type="checkbox"/>
+          <label htmlFor="likes"><i className="fa fa-thumbs-up" aria-hidden="true"></i>:
+          {likes}</label>
+          <input ref="dislikes" name="dislikes" onChange={this.handleDislike} type="checkbox"/>
+          <label htmlFor="dislikes"><i className="fa fa-thumbs-down" aria-hidden="true"></i>:
+          {dislikes}</label>
         </div>
       </li>
       );
@@ -116,13 +118,21 @@ export default React.createClass({
     })
   },
   handleLike(e){
+    if(this.refs.likes.checked===true){
     store.reviews.like(this.props.review.objectId);
-    this.refs.likes.disabled = true;
     this.refs.dislikes.disabled = true;
+  } else {
+    store.reviews.unlike(this.props.review.objectId);
+    this.refs.dislikes.disabled = false;
+  }
   },
   handleDislike(e){
+    if(this.refs.dislikes.checked===true){
     store.reviews.dislike(this.props.review.objectId);
-    this.refs.dislikes.disabled = true;
     this.refs.likes.disabled = true;
+  } else {
+    store.reviews.undislike(this.props.review.objectId);
+    this.refs.likes.disabled = false;
   }
+}
 });

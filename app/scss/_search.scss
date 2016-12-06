@@ -1,20 +1,20 @@
 .search-form {
   position: absolute;
   top: 11rem;
-  left: 38%;
+  left: 36%;
   width: 29%;
   input {
-    border-radius: 10px;
-    width: 81%;
-    height: 1.5rem;
+    width: 65%;
+    height: 1.7rem;
     font-size: 17px;
     border: none;
   }
   .fa {
     position: absolute;
-    left: 75%;
-    top: 0.2rem;
-    font-size: 20px;
+    left: 86%;
+    font-size: 22px;
+    padding: 2px;
+    background: white;
   }
 }
 main {
@@ -37,7 +37,8 @@ main {
     }
   }
   h5 {
-    margin-bottom: 3px;
+
+    margin: 1rem 0 3px;
     font-size: 20px;
   }
   li {
