@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 import {browserHistory} from 'react-router';
+import config from '../config';
 
 export default Backbone.Model.extend({
   initialize(){
@@ -51,9 +52,7 @@ export default Backbone.Model.extend({
       }
     });
   },
-  // authenticate(){
-  //   if(window.localStorage.getItem('user-token')){
-  //     this.authenticated = true;
-  //   }
-  // }
+  addPhoto(fileUrl){
+    this.save({pic: fileUrl}, {type: 'PUT'});
+  }
 });

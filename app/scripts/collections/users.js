@@ -14,5 +14,5 @@ export default Backbone.Collection.extend({
         return user;
       }
     });
-  }
+  },
 });

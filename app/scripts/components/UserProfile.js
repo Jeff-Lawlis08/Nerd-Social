@@ -1,6 +1,7 @@
 import React from 'react';
 import store from '../store';
 import ProfileReviews from './ProfileReviews';
+import {browserHistory} from 'react-router';
 
 export default React.createClass({
   getInitialState(){
@@ -30,12 +31,16 @@ export default React.createClass({
   render(){
     let photo;
     let userBio;
+    let addPhoto;
     if(this.state.user.pic){
       photo = this.state.user.pic;
     } else {
       photo = '../../assets/images/no-image.png';
     }
     if(this.state.owned===true && this.state.editing===false){
+      if(!this.state.user.pic){
+      addPhoto = <input onClick={this.handlePhoto} type="button" value="Add a Photo"/>
+    }
       if(this.state.user.bio){
       userBio = (
         <p>{this.state.user.bio}
@@ -65,9 +70,10 @@ export default React.createClass({
   );
 }
     return (
-      <div className="User-page">
+      <div className="user-page">
         <h3>{this.state.user.name}</h3>
         <img src={photo}/>
+        {addPhoto}
         {userBio}
         <ProfileReviews reviews={this.state.reviews} user={this.state.user}/>
       </div>
@@ -92,5 +98,8 @@ export default React.createClass({
     let bio = this.refs.bio.value;
     store.user.save({bio});
     this.setState({editing: false});
+  },
+  handlePhoto(e){
+    browserHistory.push('/user/images/'+this.props.params.id)
   }
 });
