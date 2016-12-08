@@ -116,7 +116,7 @@ export default React.createClass({
   },
   handleDelete(e){
     console.log(store.reviews.get(this.props.review));
-    store.reviews.get(this.props.review.objectId).destroy();
+    store.reviews.get(this.props.review.objectId).deleteReview(this.props.review.objectId);
   },
   handleEdit(e){
     this.setState({

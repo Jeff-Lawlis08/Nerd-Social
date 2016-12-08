@@ -1,10 +1,7 @@
 import React from 'react';
 import store from '../store';
-import _ from 'underscore';
 
-import ReviewForm from './ReviewForm';
 import Reviews from './Reviews';
-import SearchBar from './SearchBar';
 
 export default React.createClass({
   getInitialState(){

@@ -37,7 +37,7 @@ export default Backbone.Model.extend({
           this.set({login});
           window.localStorage.setItem('user-token', this.get('user-token'));
           window.localStorage.setItem('ownerId', this.get('ownerId'));
-          browserHistory.push('/user/'+window.localStorage.getItem('ownerId'));
+          browserHistory.push('/search');
         }
       }
     );
@@ -48,7 +48,7 @@ export default Backbone.Model.extend({
       success: () => {
       this.clear();
       window.localStorage.clear();
-      browserHistory.push('/search');
+      browserHistory.push('/login');
       }
     });
   },

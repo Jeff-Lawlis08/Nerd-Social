@@ -40,4 +40,7 @@ export default Backbone.Model.extend({
       dislikes: newDislikes
     });
   },
+  deleteReview(id){
+    this.destroy({url: 'https://api.backendless.com/v1/data/reviews/'+id});
+  }
 });

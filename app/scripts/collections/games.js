@@ -23,7 +23,6 @@ export default Backbone.Collection.extend({
         // console.log(response.results);
         this.reset();
         this.add(this.parse(response));
-        browserHistory.push('/search')
       },
     });
   },
@@ -59,38 +58,4 @@ export default Backbone.Collection.extend({
     let body = description.replace(regex, " ").replace('Overview', " ");
     return body;
   }
-  // cleanRegional(description){
-  //   console.log(description);
-  //   const regex = /(<([^>]+)>)/ig;
-  //   let re = /<h2>Gameplay<\/h2>(.+?)<h2>/;
-  //   let body = description.match(re)[1];
-  //   body = body.replace(regex, "");
-  //   // .replace('&amp;', " ");
-  //   return body;
-  // },
-  // cleanStory(description){
-  //   console.log(description);
-  //   const regex = /(<([^>]+)>)/ig;
-  //   let re = /<h2>Story<\/h2>(.+?)<h2>/;
-  //   let body = description.match(re)[1];
-  //   body = body.replace(regex, "");
-  //   // .replace('&amp;', " ");
-  //   return body;
-  // },
-  // cleanGameplay(description){
-  //   console.log(description);
-  //   const regex = /(<([^>]+)>)/ig;
-  //   let re = /<h2>Gameplay<\/h2>(.+?)<h2>/;
-  //   let body = description.match(re)[1];
-  //   body = body.replace(regex, "");
-  //   // .replace('&amp;', " ");
-  //   return body;
-  // },
-  // cleanReleases(description){
-  //   const regex = /(<([^>]+)>)/ig;
-  //   let re = /<h2>Releases<\/h2>(.+)<\/p>/;
-  //   let body = description.match(re)[1];
-  //   body = body.replace(regex, "");
-  //   return body;
-  // },
 });

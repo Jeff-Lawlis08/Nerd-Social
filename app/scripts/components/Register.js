@@ -9,7 +9,7 @@ export default React.createClass({
         <input ref="fullName" type="text" placeholder="Full Name"/>
         <input ref="name" type="text" placeholder="Username"/>
         <input ref="email" type="email" placeholder="Email"/>
-        <input ref="password" type="text" placeholder="password"/>
+        <input ref="password" type="password" placeholder="password"/>
         <input type="submit" value="Register"/>
         Already a Member? <Link to='/login'>Login Here!</Link>
       </form>

@@ -2,34 +2,78 @@ import React from 'react';
 import store from '../store';
 import SearchList from './SearchList';
 import SearchBar from './SearchBar';
+import UserSearchList from './UserSearchList';
 
 export default React.createClass({
   getInitialState(){
     return {
       games: store.games.toJSON(),
       reviews: store.reviews.toJSON(),
-      users: store.users.toJSON()
+      users: store.users.toJSON(),
+      viewUsers: false,
     }
   },
   componentDidMount(){
     store.reviews.fetch();
     store.users.fetch();
-    store.games.on('update change', this.updateGames);
-    store.reviews.on('update change', this.updateGames);
-    store.users.on('update change', this.updateGames);
+    store.games.on('update change', this.updateState);
+    store.reviews.on('update change', this.updateState);
+    store.users.on('update change', this.updateState);
   },
   componentWillUnmount(){
-    store.games.off('update change', this.updateGames);
-    store.reviews.off('update change', this.updateGames);
-    store.users.off('update change', this.updateGames);
+    store.games.off('update change', this.updateState);
+    store.reviews.off('update change', this.updateState);
+    store.users.off('update change', this.updateState);
   },
   render(){
-    // console.log(this.state);
+    let searchedUser;
+    if(this.props.location.query.user){
+      searchedUser = this.props.location.query.user;
+    }
+    let usersSearched = this.state.users.filter((user, i, arr)=>{
+      if(user.name.indexOf(searchedUser)>-1 || searchedUser.indexOf(user.name)>-1){
+        return true;
+      }
+    });
+    let searchList;
+    if(this.state.viewUsers===true){
+      searchList = <UserSearchList users={usersSearched}/>
+      if(usersSearched.length===0){
+        searchList = <span>Your search did not match any users</span>
+      }
+    } else {
+      searchList = <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
+      if(this.state.games.length===0){
+        searchList = (
+          <div>
+            <span>Your Search did not match any games</span>
+            <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
+          </div>
+        )
+      }
+    }
+    // console.log(usersSearched);
     return(
-          <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
+      <div>
+        <button onClick={this.toggleUserTab}>
+          Users
+          <i className="fa fa-users" aria-hidden="true"></i>
+        </button>
+        <button onClick={this.toggleGameTab}>
+          Games
+          <i className="fa fa-gamepad" aria-hidden="true"></i>
+        </button>
+        {searchList}
+      </div>
     );
   },
-  updateGames(){
+  updateState(){
     this.setState({games: store.games.toJSON(), reviews: store.reviews.toJSON(), users: store.users.toJSON()})
+  },
+  toggleUserTab(e){
+    this.setState({viewUsers: true});
+  },
+  toggleGameTab(e){
+    this.setState({viewUsers: false});
   }
 });

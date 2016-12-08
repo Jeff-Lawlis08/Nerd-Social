@@ -14,6 +14,7 @@ export default React.createClass({
               <i className="fa fa-user" aria-hidden="true"></i>
             </Link>
             <input onClick={this.handleClick} type="button" value="LOGOUT"/>
+            <i className="fa fa-sign-out" aria-hidden="true"></i>
           </div>
         </nav>
 
@@ -22,6 +23,14 @@ export default React.createClass({
       return(
         <nav>
           <h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1>
+          <div className="nav-buttons">
+            <Link to='/login'>
+              Login
+            </Link>
+            <Link to='/register'>
+              Register
+            </Link>
+          </div>
         </nav>
       );
     }
