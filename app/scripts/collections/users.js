@@ -7,12 +7,12 @@ export default Backbone.Collection.extend({
   parse: (response)=>{
     return response.data;
   },
-  searchUsers(name){
-    this.fetch();
-    this.filter((user, i, arr)=>{
-      if(user.name===name){
-        return user;
-      }
-    });
-  },
+  // searchUsers(name){
+  //   this.filter((user, i, arr)=>{
+  //     if(user.name===name){
+  //       console.log(user);
+  //       return user;
+  //     }
+  //   });
+  // },
 });

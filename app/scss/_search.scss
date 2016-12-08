@@ -1,17 +1,15 @@
 .search-form {
-  position: absolute;
-  top: 11rem;
-  left: 36%;
-  width: 29%;
+      top: 11rem;
+      // left: 36%;
+      width: 100%;
   input {
-    width: 65%;
+    width: 85%;
     height: 1.7rem;
     font-size: 17px;
     border: none;
   }
   .fa {
-    position: absolute;
-    left: 86%;
+    float: right;
     font-size: 22px;
     padding: 2px;
     background: white;

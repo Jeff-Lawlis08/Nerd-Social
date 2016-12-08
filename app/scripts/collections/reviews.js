@@ -23,4 +23,19 @@ export default Backbone.Collection.extend({
   parse: (data)=>{
     return data.data;
   },
+  getAvg(gameId, reviews){
+    let ratings = reviews.filter((review, i, arr)=>{
+      if(review.gameId===gameId){
+        return review;
+      }
+    }).map((review, i, arr)=>{
+      return Number(review.rating);
+    });
+    let sum = ratings.reduce(function(a, b){
+      return (a+b);
+    }, 0);
+    let initialAvg = sum/ratings.length;
+    let avg = Math.round(initialAvg);
+    return avg;
+}
 });

@@ -6,12 +6,14 @@ import ReviewEdit from './ReviewEdit';
 
 import moment from 'moment';
 import _ from 'underscore';
+import StarRatingComponent from 'react-star-rating-component';
 
 export default React.createClass({
   getInitialState(){
     return {
       editing: false,
-      owned: false
+      owned: false,
+      rating: 1
     }
   },
   componentDidMount(){
@@ -23,29 +25,13 @@ export default React.createClass({
     let user;
     let likes;
     let dislikes;
-    // let likeChecked = false;
-    // let likeDisabled = false;
-    // let dislikeChecked = false;
-    // let dislikeDisabled = false;
-    //   if(this.props.review.likes.indexOf(window.localStorage.getItem('ownerId')>-1)){
-    //     likeChecked=true;
-    //     dislikeDisabled=true;
-    //   } else if(this.props.review.dislikes.indexOf(window.localStorage.getItem('ownerId')>-1)){
-    //     dislikeChecked=true;
-    //     likeDisabled=true;
-    //   } else {
-    //     likeChecked = false;
-    //     likeDisabled = false;
-    //     dislikeChecked = false;
-    //     dislikeDisabled = false;
-    //   }
-    // console.log(this.props.review.likes);
-      if(this.props.review.likes.length===null){
+      // console.log(this.props.review.likes);
+      if(this.props.review.likes===null || this.props.review.likes===undefined){
         likes = 0;
       } else {
         likes = this.props.review.likes.length;
       }
-      if(this.props.review.dislikes.length===null){
+      if(this.props.review.dislikes===null || this.props.review.dislikes===undefined){
         dislikes=0;
       } else {
         dislikes = this.props.review.dislikes.length
@@ -61,12 +47,20 @@ export default React.createClass({
           if (user) {return (
       <li className="review-items">
         <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
-        <span>Rating: {this.props.review.rating}</span>
+        <img src={user.pic} height="50px" width="70px"/>
+        <div>
+            <StarRatingComponent
+                name="rate3"
+                starCount={5}
+                editing={false}
+                value={Number(this.props.review.rating)}
+            />
+        </div>
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
         <div className="like-dislike">
           <button ref="likes" onClick={this.handleLike} type="button">
-          <i className="fa fa-thumbs-up" aria-hidden="true"></i> 
+          <i className="fa fa-thumbs-up" aria-hidden="true"></i>
           {likes}</button>
           <button ref="dislikes" onClick={this.handleDislike} type="button">
           <i className="fa fa-thumbs-down" aria-hidden="true"></i>
@@ -77,10 +71,19 @@ export default React.createClass({
     } else { return null}
   }
     else if(this.state.editing===false && this.state.owned===true){
+      // console.log(this.props.review.rating);
     return (
       <li className="review-items">
         <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
-        <span>Rating: {this.props.review.rating}</span>
+        <img src={user.pic} height="50px" width="70px"/>
+        <div>
+            <StarRatingComponent
+                name="rate2"
+                starCount={5}
+                editing={false}
+                value={Number(this.props.review.rating)}
+            />
+        </div>
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
         <div className="like-dislike">
@@ -95,21 +98,24 @@ export default React.createClass({
     );
   } else if(this.state.editing=true){
       return (
-        <div className="modal-background">
-          <div className="modal-container">
-            <form onSubmit={this.handleSubmit}>
+            <form className="edit-review" onSubmit={this.handleSubmit}>
               <span>Edit Your Review</span>
               <textarea ref="body" placeholder={this.props.review.body}/>
-              <input type="number" ref="rating" placeholder={this.props.review.rating}/>
+              <StarRatingComponent
+                  name="rate4"
+                  starCount={5}
+                  value={Number(this.props.review.rating)}
+                  onStarClick={this.onStarClick}
+              />
               <input type="submit" value="Submit"/>
               <input onClick={this.handleCancel} type="button" value="Cancel"/>
             </form>
-          </div>
-        </div>
+
       );
     }
   },
   handleDelete(e){
+    console.log(store.reviews.get(this.props.review));
     store.reviews.get(this.props.review.objectId).destroy();
   },
   handleEdit(e){
@@ -120,7 +126,7 @@ export default React.createClass({
   handleSubmit(e){
     e.preventDefault();
     let body = this.refs.body.value;
-    let rating = this.refs.rating.value;
+    let rating = String(this.state.rating);
     let dateEdited = new Date();
     store.reviews.get(this.props.review.objectId).save({body, rating, dateEdited});
     this.setState({
@@ -157,5 +163,8 @@ export default React.createClass({
     store.reviews.get(this.props.review.objectId).undislike(id);
     this.refs.likes.disabled = false;
   }
+},
+onStarClick(nextValue, prevValue, name){
+  this.setState({rating: nextValue});
 }
 });

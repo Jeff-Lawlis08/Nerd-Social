@@ -48,8 +48,6 @@ export default React.createClass({
             <p>{overviewBody}</p>
           </div>
         </div>
-        <ReviewForm game={this.state.game}/>
-        <h4>Reviews</h4>
         <Reviews game={this.state.game}/>
         </div>
     );

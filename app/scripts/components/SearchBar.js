@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../store';
 
 export default React.createClass({
+
   render(){
     return(
       <form className="search-form" onSubmit={this.handleSubmit}>
@@ -15,7 +16,8 @@ export default React.createClass({
     e.preventDefault();
     let search = this.refs.search.value;
     store.games.getGames(search);
-    store.users.searchUsers(search);
+    // store.users.searchUsers(search);
     this.refs.search.value=''
   },
+
 });

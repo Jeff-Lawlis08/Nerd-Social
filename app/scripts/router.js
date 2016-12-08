@@ -8,6 +8,7 @@ import Search from './components/Search';
 import GamePage from './components/GamePage';
 import UserProfile from './components/UserProfile';
 import ImageUpload from './components/ImageUpload';
+import RatingsStars from './components/RatingsStars';
 
 const router = (
   <Router history={browserHistory}>
