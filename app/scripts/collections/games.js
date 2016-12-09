@@ -9,6 +9,7 @@ export default Backbone.Collection.extend({
   model: Game,
 
   getGames(search){
+    this.reset();
     $.ajax({
       url: 'https://www.giantbomb.com/api/search',
       dataType: 'jsonp',
@@ -21,7 +22,6 @@ export default Backbone.Collection.extend({
       },
       success: (response)=>{
         // console.log(response.results);
-        this.reset();
         this.add(this.parse(response));
       },
     });

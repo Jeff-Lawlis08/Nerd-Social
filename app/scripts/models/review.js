@@ -4,6 +4,10 @@ export default Backbone.Model.extend({
   idAttribute: 'objectId',
   timestamp: new Date(),
   url: 'https://api.backendless.com/v1/data/reviews',
+  // defaults: {
+  //   likes: []
+  //   dislikes:
+  // },
   like(id){
     this.save({
       likes: this.get('likes').concat({

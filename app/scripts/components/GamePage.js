@@ -25,12 +25,10 @@ export default React.createClass({
     let body;
     let photo;
     let overviewBody;
-    let regionalDiff;
-    let story;
-    let gameplay;
-    let releases;
     if(this.state.game.description){
     overviewBody = store.games.cleanOverview(this.state.game.description);
+  } else {
+    overviewBody = "No overview available"
   }
     if(this.state.game.image){
       photo = this.state.game.image.medium_url;

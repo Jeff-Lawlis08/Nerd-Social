@@ -13,6 +13,7 @@ export default React.createClass({
               <span>My Profile </span>
               <i className="fa fa-user" aria-hidden="true"></i>
             </Link>
+            <Link to='/search'>Search</Link>
             <input onClick={this.handleClick} type="button" value="LOGOUT"/>
             <i className="fa fa-sign-out" aria-hidden="true"></i>
           </div>

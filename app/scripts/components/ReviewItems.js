@@ -16,16 +16,28 @@ export default React.createClass({
       rating: 1
     }
   },
-  componentDidMount(){
-    if(window.localStorage.ownerId===this.props.review.ownerId){
+  componentWillMount(){
+    if(window.localStorage.getItem('ownerId')===this.props.review.ownerId){
       this.setState({owned: true})
+    } else {
+      this.setState({owned: false})
+    }
+  },
+  componentDidMount(){
+    if(window.localStorage.getItem('ownerId')===this.props.review.ownerId){
+      this.setState({owned: true})
+  } else {
+    this.setState({owned: false});
   }
+},
+  componentWillUnmount(){
+      this.setState({owned: false})
+
 },
   render(){
     let user;
     let likes;
     let dislikes;
-      // console.log(this.props.review.likes);
       if(this.props.review.likes===null || this.props.review.likes===undefined){
         likes = 0;
       } else {
@@ -44,6 +56,7 @@ export default React.createClass({
       user = this.props.users
     }
     if(this.state.editing===false && this.state.owned===false){
+      // console.log(this.state.owned);
           if (user) {return (
       <li className="review-items">
         <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
@@ -71,7 +84,6 @@ export default React.createClass({
     } else { return null}
   }
     else if(this.state.editing===false && this.state.owned===true){
-      // console.log(this.props.review.rating);
     return (
       <li className="review-items">
         <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
@@ -92,8 +104,12 @@ export default React.createClass({
           <span><i className="fa fa-thumbs-down" aria-hidden="true"></i>:
           {dislikes}</span>
         </div>
-        <input onClick={this.handleEdit} type="button" value="Edit"/>
-        <input onClick={this.handleDelete} type="button" value="Delete"/>
+        <button onClick={this.handleEdit}>
+          Edit <i className="fa fa-pencil-square" aria-hidden="true"></i>
+        </button>
+        <button onClick={this.handleDelete}>
+          Delete <i className="fa fa-trash" aria-hidden="true"></i>
+        </button>
       </li>
     );
   } else if(this.state.editing=true){
@@ -107,15 +123,14 @@ export default React.createClass({
                   value={Number(this.props.review.rating)}
                   onStarClick={this.onStarClick}
               />
-              <input type="submit" value="Submit"/>
               <input onClick={this.handleCancel} type="button" value="Cancel"/>
+              <input type="submit" value="Submit"/>
             </form>
 
       );
     }
   },
   handleDelete(e){
-    console.log(store.reviews.get(this.props.review));
     store.reviews.get(this.props.review.objectId).deleteReview(this.props.review.objectId);
   },
   handleEdit(e){

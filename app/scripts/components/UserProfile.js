@@ -20,7 +20,7 @@ export default React.createClass({
   },
   componentDidMount(){
     store.user.fetch({url: 'https://api.backendless.com/v1/data/users/'+this.props.params.id});
-    store.reviews.fetch();
+    store.reviews.fetch({data: {where: `ownerId='${this.props.params.id}'`}});
     store.user.on('update change', this.updateState);
     store.reviews.on('update change', this.updateState);
   },

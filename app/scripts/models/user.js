@@ -52,6 +52,9 @@ export default Backbone.Model.extend({
       }
     });
   },
+  // authenticate(id){
+  //   if(this.ownerId)
+  // },
   addPhoto(fileUrl){
     this.save({pic: fileUrl}, {type: 'PUT'});
   }

@@ -31,7 +31,7 @@ export default React.createClass({
       searchedUser = this.props.location.query.user;
     }
     let usersSearched = this.state.users.filter((user, i, arr)=>{
-      if(user.name.indexOf(searchedUser)>-1 || searchedUser.indexOf(user.name)>-1){
+      if(user.name.indexOf(searchedUser)>-1){
         return true;
       }
     });
@@ -45,10 +45,7 @@ export default React.createClass({
       searchList = <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
       if(this.state.games.length===0){
         searchList = (
-          <div>
-            <span>Your Search did not match any games</span>
             <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
-          </div>
         )
       }
     }

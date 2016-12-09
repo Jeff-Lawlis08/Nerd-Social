@@ -55,6 +55,8 @@ export default React.createClass({
     let gameId = this.props.game.id;
     let gameName = this.props.game.name;
     let timestamp = new Date();
+    // let likes = null;
+    // let dislikes = null;
     store.reviews.addReview({body, rating, gameId, gameName, timestamp});
     this.refs.body.value='';
     this.setState({rating: 1});
