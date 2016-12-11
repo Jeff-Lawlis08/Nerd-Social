@@ -9,13 +9,16 @@ export default React.createClass({
         <nav>
           <h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1>
           <div className="nav-buttons">
-            <Link to={`/user/${window.localStorage.getItem('ownerId')}`}>
-              <span>My Profile </span>
+            <Link to={`/user/${window.localStorage.getItem('ownerId')}`} onClick={this.handleUserReset}>
+              <span>My Profile</span>
               <i className="fa fa-user" aria-hidden="true"></i>
             </Link>
-            <Link to='/search'>Search</Link>
-            <input onClick={this.handleClick} type="button" value="LOGOUT"/>
-            <i className="fa fa-sign-out" aria-hidden="true"></i>
+            <Link to='/search'>
+              <span>Search</span>
+              <i className="fa fa-search" aria-hidden="true"></i>
+            </Link>
+            <input onClick={this.handleClick} name="logout" type="button" value="Logout"/>
+            <label htmlFor="logout"><i className="fa fa-sign-out" aria-hidden="true"></i></label>
           </div>
         </nav>
 
@@ -38,6 +41,10 @@ export default React.createClass({
     },
     handleClick(e){
       store.session.logout();
+    },
+    handleUserReset(){
+      // store.user.clear();
+      store.reviews.reset();
     }
 });
 // <Link to='/login'>LOGIN</Link>

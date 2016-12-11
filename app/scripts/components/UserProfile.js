@@ -5,6 +5,7 @@ import {browserHistory} from 'react-router';
 
 export default React.createClass({
   getInitialState(){
+
         return {
           user: {},
           reviews: [],
@@ -13,12 +14,26 @@ export default React.createClass({
         };
 
   },
+  componentWillReceiveProps(nextProps){
+    if(nextProps.params.id!==this.props.params.id){
+      this.setState(this.getInitialState());
+      // store.user.clear();
+      store.user.fetch({url: 'https://api.backendless.com/v1/data/users/'+nextProps.params.id});
+      store.reviews.fetch({data: {where: `ownerId='${nextProps.params.id}'`}});
+      if(nextProps.params.id===window.localStorage.getItem('ownerId')){
+        this.setState({owned: true})
+      } else {
+        this.setState(this.componentDidMount());
+      }
+    }
+  },
   componentWillMount(){
     if(this.props.params.id===window.localStorage.getItem('ownerId')){
       this.setState({owned: true})
     }
   },
   componentDidMount(){
+
     store.user.fetch({url: 'https://api.backendless.com/v1/data/users/'+this.props.params.id});
     store.reviews.fetch({data: {where: `ownerId='${this.props.params.id}'`}});
     store.user.on('update change', this.updateState);

@@ -59,7 +59,7 @@ export default React.createClass({
       // console.log(this.state.owned);
           if (user) {return (
       <li className="review-items">
-        <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
+        <h5><Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>{user.name}</Link></h5>
         <img src={user.pic} height="50px" width="70px"/>
         <div>
             <StarRatingComponent
@@ -86,7 +86,7 @@ export default React.createClass({
     else if(this.state.editing===false && this.state.owned===true){
     return (
       <li className="review-items">
-        <h5><Link to={`/user/${user.ownerId}`}>{user.name}</Link></h5>
+        <h5><Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>{user.name}</Link></h5>
         <img src={user.pic} height="50px" width="70px"/>
         <div>
             <StarRatingComponent
@@ -181,5 +181,9 @@ export default React.createClass({
 },
 onStarClick(nextValue, prevValue, name){
   this.setState({rating: nextValue});
+},
+handleUserReset(){
+  store.user.clear();
+  store.reviews.reset();
 }
 });

@@ -22,7 +22,7 @@ export default React.createClass({
     allItems = maxItems.map((review, i, arr)=>{
       return (
         <div key={i} className="recent-reviews">
-          <h4><Link to={`/game/${review.gameId}`}>{review.gameName}</Link></h4>
+          <h4><Link to={`/game/${review.gameId}`} onClick={this.handleUserReset}>{review.gameName}</Link></h4>
           <ReviewItems review={review} users={this.props.users}/>
         </div>
       );
@@ -36,5 +36,9 @@ export default React.createClass({
         </ul>
       </main>
     );
+  },
+  handleUserReset(){
+    store.user.clear();
+    store.reviews.reset();
   }
 });

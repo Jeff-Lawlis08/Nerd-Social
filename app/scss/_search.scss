@@ -18,6 +18,7 @@
 main {
   h3{
     color: #024959;
+    font-family: $subheader-font;
   &:nth-of-type(1){
       font-size: 20px;
       border-top: 1px solid #D8D8D9;
@@ -30,12 +31,13 @@ main {
   border-bottom: 1px solid #D8D8D9;
   padding: 5px;
   h4 {
+    font-family: $subheader-font;
     a {
       color: #037E8C;
     }
   }
   h5 {
-
+    font-family: $subheader-font;
     margin: 1rem 0 3px;
     font-size: 20px;
   }
@@ -79,6 +81,7 @@ main {
       white-space: nowrap;
       text-overflow: ellipsis;
       color: #037E8C;
+      font-family: $subheader-font;
     }
     span {
       font-size: 12px;
