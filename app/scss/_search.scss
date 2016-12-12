@@ -1,23 +1,79 @@
+.searchbar-container {
+  span {
+    color: white;
+  }
+}
+.review-items{
+  img {
+    height: 150px;
+    width: 150px;
+  }
+}
 .search-form {
-      top: 11rem;
-      // left: 36%;
-      width: 100%;
+  top: 11rem;
+  width: 95%;
+  margin: 0 5%;
   input {
-    width: 85%;
+    width: 90%;
     height: 1.7rem;
     font-size: 17px;
     border: none;
   }
   .fa {
-    float: right;
+    height: 1.6rem;
     font-size: 22px;
-    padding: 2px;
-    background: white;
+    background: $primary-color;
+    width: 8%;
   }
 }
+.search-tabs {
+  text-align: center;
+  border-bottom: 1px solid #F2F2F2;
+  .active-results {
+    font-size: 20px;
+    background: red;
+    border-radius: 100%;
+    padding: 0 5px;
+  }
+  .tab {
+    font-size: 35px;
+    border: 1px solid #F2F2F2;
+    background: $primary-color;
+    font-family: $standard-font;
+  }
+  .active-tab {
+    font-size: 35px;
+    border: 1px solid #F2F2F2;
+    border-bottom: 2px solid white;
+    background: white;
+    font-family: $standard-font;
+  }
+}
+.user-list {
+  list-style: none;
+  padding-left: 0;
+  li {
+    border-top: 1px solid #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+    padding: 1rem 0 0.5rem;
+    font-size: 20px;
+    a {
+      text-decoration: none;
+    }
+    img {
+      height: 200px;
+      width: 200px;
+    }
+    h5{
+      color: $secondary-color;
+      margin: 0;
+    }
+  }
+}
+
 main {
   h3{
-    color: #024959;
+    color: $secondary-color;
     font-family: $subheader-font;
   &:nth-of-type(1){
       font-size: 20px;
@@ -44,21 +100,28 @@ main {
   li {
     color: #404040;
   }
+  button {
+    font-size: 15px;
+    font-family: $standard-font;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+}
+.edit-review {
+  display: block;
+  width: 80%;
+  border: 1px solid #F2F2F2;
 }
 .game-list{
   list-style: none;
   @include outer-container();
   margin: 1rem auto;
   padding: 0;
-
-  // margin-left: 11rem;
   .games {
     margin-left: 2%;
     margin-bottom: 3rem;
     height: 200px;
-    // padding: 2rem;
-  @include span-columns(5 of 12);
-
+  @include span-columns(10 of 12);
   &::after{
     content: '';
     display: block;
@@ -88,7 +151,6 @@ main {
       color: #024959;
     }
   }
-
   img {
     height: 200px;
     max-width: 100%;
@@ -97,4 +159,9 @@ main {
   }
   }
 }
+}
+@media (min-width: 450px) {
+  .games{
+    @include span-columns(5 of 12);
+  }
 }

@@ -13,7 +13,7 @@ export default React.createClass({
     return (
       <li>
         <Link to={`/user/${this.props.user.ownerId}`}>
-          <img src={pic} height="40" width="70"/>
+          <img src={pic}/>
           <h5>{this.props.user.name}</h5>
         </Link>
       </li>

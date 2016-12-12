@@ -79,17 +79,19 @@ export default React.createClass({
 } else if(this.state.editing===true){
   userBio =  (
       <form onSubmit={this.handleBioResave}>
-        <input ref="bio" type="text" placeholder={this.state.user.bio}/>
+        <input ref="bio" type="text" defaultValue={this.state.user.bio}/>
         <input type="submit" value="submit"/>
       </form>
   );
 }
     return (
       <div className="user-page">
-        <h3>{this.state.user.name}</h3>
-        <img src={photo}/>
-        {addPhoto}
-        {userBio}
+        <div className="user-info">
+          <h3>{this.state.user.name}</h3>
+          <img src={photo}/>
+          {addPhoto}
+          {userBio}
+        </div>
         <ProfileReviews reviews={this.state.reviews} user={this.state.user}/>
       </div>
     );

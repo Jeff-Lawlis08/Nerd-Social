@@ -60,7 +60,7 @@ export default React.createClass({
           if (user) {return (
       <li className="review-items">
         <h5><Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>{user.name}</Link></h5>
-        <img src={user.pic} height="50px" width="70px"/>
+        <img src={user.pic}/>
         <div>
             <StarRatingComponent
                 name="rate3"
@@ -87,7 +87,7 @@ export default React.createClass({
     return (
       <li className="review-items">
         <h5><Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>{user.name}</Link></h5>
-        <img src={user.pic} height="50px" width="70px"/>
+        <img src={user.pic}/>
         <div>
             <StarRatingComponent
                 name="rate2"
@@ -104,10 +104,10 @@ export default React.createClass({
           <span><i className="fa fa-thumbs-down" aria-hidden="true"></i>:
           {dislikes}</span>
         </div>
-        <button onClick={this.handleEdit}>
+        <button className="edit-delete" onClick={this.handleEdit}>
           Edit <i className="fa fa-pencil-square" aria-hidden="true"></i>
         </button>
-        <button onClick={this.handleDelete}>
+        <button className="edit-delete" onClick={this.handleDelete}>
           Delete <i className="fa fa-trash" aria-hidden="true"></i>
         </button>
       </li>
@@ -116,7 +116,7 @@ export default React.createClass({
       return (
             <form className="edit-review" onSubmit={this.handleSubmit}>
               <span>Edit Your Review</span>
-              <textarea ref="body" placeholder={this.props.review.body}/>
+              <textarea ref="body" defaultValue={this.props.review.body}/>
               <StarRatingComponent
                   name="rate4"
                   starCount={5}

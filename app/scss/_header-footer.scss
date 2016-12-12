@@ -17,13 +17,19 @@ nav {
     }
   }
   .nav-buttons{
+    text-align: right;
     float: right;
     padding: 0 10px;
+    width: 50%;
+    margin-top: 2rem;
+    .nav-titles {
+      display: none;
+    }
   a {
     color: #037E8C;
-    margin-right: 10%;
+    margin-right: 2%;
   }
-  input {
+  button {
     color: #037E8C;
     border: none;
     background: white;
@@ -42,13 +48,25 @@ nav {
     url('../../assets/images/cropped-header.jpg');
     height: 15rem;
     background-size: cover;
-    padding: 103px 241px;
+    padding: 103px 0;
 }
 footer {
+  background: $primary-color;
+  border-top: 1px solid #F2F2F2;
   text-align: right;
+  height: 4rem;
   img {
     max-width: 100%;
-    width: 10%;
+    width: 8%;
 
   }
+}
+@media(min-width: 700px) {
+  nav{
+  .nav-buttons {
+  .nav-titles {
+    display: inline;
+  }
+}
+}
 }

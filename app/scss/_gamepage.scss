@@ -1,12 +1,16 @@
 .gamepage-contents {
   margin-top: 3rem;
 .pic-and-info {
-  margin-bottom: 4rem;
 img {
   max-width: 100%;
   width: 47%;
   margin-right: 3%;
   height: 500px;
+}
+&::after{
+  clear: both;
+  content: '';
+  display: block;
 }
 .game-info {
   float: right;
@@ -68,42 +72,12 @@ img {
 
   }
 }
-.modal-background{
-  position: fixed;
-  height: 35rem;
-  background: rgba(0, 0, 0, 0.7);
-  width: 80%;
-  bottom: 7rem;
-  left: 10rem;
-
-  .modal-container {
-    position: fixed;
-    bottom: 16rem;
-    left: 31%;
-    background: #037E8C;
-    height: 20rem;
-    padding: 4rem;
-    width: 50%;
-    form {
-      span {
-        display: block;
-        text-align: center;
-        color: white;
-      }
+.avg-rating-container {
+    .edit-review {
       textarea {
-        display: block;
-        margin: 0.5rem auto;
-        height: 5rem;
         width: 100%;
       }
-      input {
-        &:nth-of-type(1){
-          width: 20%;
-          display: block;
-          margin-bottom: 0.5rem;
-        }
-      }
-    }
-  }
+}
+
 }
 }

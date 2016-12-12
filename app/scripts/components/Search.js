@@ -36,36 +36,57 @@ export default React.createClass({
       }
     });
     let searchList;
+    let userClass;
+    let gameClass;
+    let userLength;
+    let gameLength;
+    let resultsClass;
+    if(usersSearched.length>0 || this.state.games.length>0){
+      userLength = usersSearched.length;
+      gameLength = this.state.games.length;
+      resultsClass = 'active-results';
+    } else {
+      resultsClass = 'no-active-results';
+    }
     if(this.state.viewUsers===true){
+      userClass = 'active-tab';
+      gameClass = 'tab';
       searchList = <UserSearchList users={usersSearched}/>
       if(usersSearched.length===0){
-        searchList = <span>Your search did not match any users</span>
+        searchList = <span className="no-results">Your search did not match any users</span>
       }
     } else {
+      userClass = 'tab';
+      gameClass = 'active-tab';
       searchList = <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
-      if(this.state.games.length===0){
+      if(this.state.games.length===0 && usersSearched.length>=0){
         searchList = (
-            <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
+            <div>
+              <span className="no-results">Your search did not match any games</span>
+              <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
+            </div>
         )
       }
     }
     // console.log(usersSearched);
     return(
       <div>
-        <button onClick={this.toggleUserTab}>
-          Users
-          <i className="fa fa-users" aria-hidden="true"></i>
-        </button>
-        <button onClick={this.toggleGameTab}>
-          Games
-          <i className="fa fa-gamepad" aria-hidden="true"></i>
-        </button>
+        <div className="search-tabs">
+          <button className={userClass} onClick={this.toggleUserTab}>
+            Users <span className={resultsClass}>{userLength}</span>
+            <i className="fa fa-users" aria-hidden="true"></i>
+          </button>
+          <button className={gameClass} onClick={this.toggleGameTab}>
+            Games <span className={resultsClass}>{gameLength}</span>
+            <i className="fa fa-gamepad" aria-hidden="true"></i>
+          </button>
+        </div>
         {searchList}
       </div>
     );
   },
   updateState(){
-    this.setState({games: store.games.toJSON(), reviews: store.reviews.toJSON(), users: store.users.toJSON()})
+    this.setState({games: store.games.toJSON(), reviews: store.reviews.toJSON(), users: store.users.toJSON()});
   },
   toggleUserTab(e){
     this.setState({viewUsers: true});

@@ -10,15 +10,17 @@ export default React.createClass({
           <h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1>
           <div className="nav-buttons">
             <Link to={`/user/${window.localStorage.getItem('ownerId')}`} onClick={this.handleUserReset}>
-              <span>My Profile</span>
+              <span className="nav-titles">My Profile</span>
               <i className="fa fa-user" aria-hidden="true"></i>
             </Link>
             <Link to='/search'>
-              <span>Search</span>
+              <span className="nav-titles">Search</span>
               <i className="fa fa-search" aria-hidden="true"></i>
             </Link>
-            <input onClick={this.handleClick} name="logout" type="button" value="Logout"/>
-            <label htmlFor="logout"><i className="fa fa-sign-out" aria-hidden="true"></i></label>
+            <button onClick={this.handleClick}>
+              <span className="nav-titles">Logout</span>
+              <i className="fa fa-sign-out" aria-hidden="true"></i>
+            </button>
           </div>
         </nav>
 

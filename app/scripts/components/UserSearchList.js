@@ -8,7 +8,7 @@ export default React.createClass({
       return <UserSearchItems key={i} user={user}/>;
     });
     return (
-      <ul>
+      <ul className="user-list">
         <h4>Users</h4>
         {allUsers}
       </ul>

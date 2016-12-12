@@ -3,5 +3,8 @@ body {
   font-family: $standard-font;
 #container {
   position: relative;
+  img {
+    object-fit: scale-down;
+  }
 }
 }
