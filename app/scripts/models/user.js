@@ -16,7 +16,6 @@ export default Backbone.Model.extend({
     name: '',
     email: '',
     'user-token': '',
-    // authenticated: false,
     },
   register(name, fullName, email, password){
     this.save({name, fullName, email, password},

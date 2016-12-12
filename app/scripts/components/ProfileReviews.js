@@ -17,6 +17,7 @@ export default React.createClass({
     });
     return (
       <ul className="profile-review-list">
+        <h5 className="profile-review-title">User Reviews</h5>
         {allReviews}
       </ul>
     )

@@ -13,12 +13,12 @@ export default React.createClass({
   },
   componentDidMount(){
     store.users.fetch();
-    store.users.on('update change', this.updateState);
-    store.games.on('update change', this.updateState);
+    store.users.on('update change', this.updateUsersState);
+    store.games.on('update change', this.updateGamesState);
   },
   componentWillUnmount(){
-    store.users.off('update change', this.updateState);
-    store.games.off('update change', this.updateState);
+    store.users.off('update change', this.updateUsersState);
+    store.games.off('update change', this.updateGamesState);
 
   },
   render(){
@@ -36,27 +36,25 @@ export default React.createClass({
         </div>
     );
   },
-  updateState(){
-    this.setState({users: store.users.toJSON(), games: store.games.toJSON(), loading: false});
+  updateUsersState(){
+    this.setState({users: store.users.toJSON()});
+  },
+  updateGamesState(){
+    this.setState({games: store.games.toJSON(), loading: false})
   },
   handleSearch(e){
     e.preventDefault();
     store.games.reset();
-    window.setTimeout(this.updateState, 3000)
+    this.setState({loading: true});
+    window.setTimeout(this.updateGamesState, 7000);
     let search = this.refs.search.value;
     let searchedUser = store.users.filter((user, i, arr)=>{
-      if(user.get('name').indexOf(search.trim())>-1 || user.get('fullName').trim().toUpperCase().indexOf(search.trim().toUpperCase())>-1){
-        return true;
+      if(user.get('name').trim().toUpperCase().indexOf(search.trim().toUpperCase())>-1 || user.get('fullName').trim().toUpperCase().indexOf(search.trim().toUpperCase())>-1){
+        return user;
       }
     });
     browserHistory.push('/search/?user='+search);
     store.games.getGames(search);
     this.refs.search.value=''
-    if(store.games.models.length===0){
-      this.setState({loading: true});
-    } else if(store.games.models.length>0){
-      this.setState({loading: false});
-    }
-
   },
 });

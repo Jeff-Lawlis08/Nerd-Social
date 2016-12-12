@@ -39,7 +39,7 @@ export default React.createClass({
       );
     } else {
       return (
-        <span>You must be logged in to write a review<Link to='/login'>Login</Link></span>
+        <span>You must be <Link to='/login'>logged in</Link> to write a review</span>
       )
     }
   },

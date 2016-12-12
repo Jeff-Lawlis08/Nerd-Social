@@ -27,14 +27,16 @@ export default React.createClass({
   },
   render(){
     let searchedUser;
-    if(this.props.location.query.user){
-      searchedUser = this.props.location.query.user;
-    }
+
     let usersSearched = this.state.users.filter((user, i, arr)=>{
-      if(user.name.indexOf(searchedUser)>-1){
+      if(this.props.location.query.user){
+        searchedUser = this.props.location.query.user;
+      if(user.name.indexOf(searchedUser)>-1 || user.fullName.trim().toUpperCase().indexOf(searchedUser.trim().toUpperCase())>-1){
         return true;
       }
+    }
     });
+
     let searchList;
     let userClass;
     let gameClass;

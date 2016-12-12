@@ -105,10 +105,10 @@ export default React.createClass({
           {dislikes}</span>
         </div>
         <button className="edit-delete" onClick={this.handleEdit}>
-          Edit <i className="fa fa-pencil-square" aria-hidden="true"></i>
+          <i className="fa fa-pencil-square" aria-hidden="true"></i>
         </button>
         <button className="edit-delete" onClick={this.handleDelete}>
-          Delete <i className="fa fa-trash" aria-hidden="true"></i>
+          <i className="fa fa-trash" aria-hidden="true"></i>
         </button>
       </li>
     );
@@ -158,12 +158,16 @@ export default React.createClass({
     let ids = this.props.review.likes.map((like, i, arr)=>{
       return like.objectId;
     });
+    if(window.localStorage.getItem('user-token')){
     if(ids.indexOf(id)===-1){
     store.reviews.get(this.props.review.objectId).like(id);
     this.refs.dislikes.disabled = true;
   } else {
     store.reviews.get(this.props.review.objectId).unlike(id);
     this.refs.dislikes.disabled = false;
+    }
+  } else {
+    alert("You must be logged in to like reviews")
   }
   },
   handleDislike(e){
@@ -171,6 +175,7 @@ export default React.createClass({
     let ids = this.props.review.dislikes.map((dislike, i, arr)=>{
       return dislike.objectId;
     });
+    if(window.localStorage.getItem('user-token')){
     if(ids.indexOf(id)<=-1){
     store.reviews.get(this.props.review.objectId).dislike(id);
     this.refs.likes.disabled = true;
@@ -178,6 +183,9 @@ export default React.createClass({
     store.reviews.get(this.props.review.objectId).undislike(id);
     this.refs.likes.disabled = false;
   }
+} else {
+  alert("You must be logged in to dislike reviews")
+}
 },
 onStarClick(nextValue, prevValue, name){
   this.setState({rating: nextValue});

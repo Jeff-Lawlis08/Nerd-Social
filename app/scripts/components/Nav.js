@@ -36,6 +36,10 @@ export default React.createClass({
             <Link to='/register'>
               Register
             </Link>
+            <Link to='/search'>
+              Search
+              <i className="fa fa-search" aria-hidden="true"></i>
+            </Link>
           </div>
         </nav>
       );

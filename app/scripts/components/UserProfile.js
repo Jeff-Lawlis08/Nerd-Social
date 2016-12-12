@@ -58,29 +58,41 @@ export default React.createClass({
     }
       if(this.state.user.bio){
       userBio = (
-        <p>{this.state.user.bio}
-          <input onClick={this.handleBioEdit} type="button" value="Edit Bio"/>
-        </p>
+        <div className="bio">
+          <span>Bio</span>
+          <p>{this.state.user.bio}
+            <button onClick={this.handleBioEdit}>
+              <i className="fa fa-pencil-square" aria-hidden="true"></i>
+            </button>
+          </p>
+        </div>
       );
     } else {
       userBio = (
-        <form onSubmit={this.handleSubmit}>
+        <form className="bio-edit-form" onSubmit={this.handleSubmit}>
           <textarea ref="bio" placeholder="Add a Bio!"/>
+          <input onClick={this.handleCancel} type="button" value="Cancel"/>
           <input type="submit" value="submit"/>
         </form>
       );
     }
   } else if(this.state.owned===false){
     if(this.state.user.bio){
-    userBio = (<p>{this.state.user.bio}</p>);
+    userBio = (
+      <div className="bio">
+        <span>Bio</span>
+        <p>{this.state.user.bio}</p>
+      </div>
+    );
   } else {
     userBio = (<span>No user bio available</span>);
   }
 } else if(this.state.editing===true){
   userBio =  (
-      <form onSubmit={this.handleBioResave}>
+      <form className="bio-edit-form" onSubmit={this.handleBioResave}>
         <textarea ref="bio" defaultValue={this.state.user.bio}/>
-        <input type="submit" value="submit"/>
+        <input onClick={this.handleCancel} type="button" value="Cancel"/>
+        <input type="submit" value="Submit"/>
       </form>
   );
 }
@@ -109,6 +121,9 @@ export default React.createClass({
   },
   handleBioEdit(e){
     this.setState({editing: true});
+  },
+  handleCancel(e){
+    this.setState({editing: false});
   },
   handleBioResave(e){
     e.preventDefault();

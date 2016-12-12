@@ -48,6 +48,14 @@
       }
     }
   }
+  .review-items{
+    button {
+      background: #F24C27;
+      color: white;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+  }
 }
 .image-upload-container {
   div {
@@ -63,24 +71,64 @@
 }
 @media(min-width: 450px) {
   .user-page {
+
     &::after {
       display: block;
       content: '';
       clear: both;
     }
     .user-info {
-      display: inline-block;
-      width: 40%;
+      border: 1px solid $standard-border;
+      padding: 10px;
+      margin-top: 2rem;
+      .bio {
+        float: right;
+        p {
+          display: inline-block;
+          button {
+            background: #F24C27;
+            color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+          }
+        }
+        span {
+          display: block;
+          text-align: center;
+          text-decoration: underline;
+        }
+      }
+      .bio-edit-form{
+        display: inline-block;
+        float: right;
+        width: 40%;
+        margin-right: 10%;
+        textarea {
+          width: 100%;
+        }
+        input {
+          display: inline-block;
+        }
+
+      }
+
       img {
         width: 60%;
       }
     }
 
     .profile-review-list {
-      display: inline-block;
-      width: 40%;
-      float: right;
-      margin-right: 5%;
+      padding-left: 0;
+      .profile-review-title {
+        border-bottom: 1px solid #F2F2F2;
+        padding-bottom: 1rem;
+        padding-left: 5%;
+      }
     }
+      .profile-review-list > div{
+        padding-left: 5%;
+      }
+
+
   }
 }
