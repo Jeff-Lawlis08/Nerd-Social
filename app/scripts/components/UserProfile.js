@@ -65,7 +65,7 @@ export default React.createClass({
     } else {
       userBio = (
         <form onSubmit={this.handleSubmit}>
-          <input ref="bio" type="text" placeholder="Add a Bio!"/>
+          <textarea ref="bio" placeholder="Add a Bio!"/>
           <input type="submit" value="submit"/>
         </form>
       );
@@ -79,7 +79,7 @@ export default React.createClass({
 } else if(this.state.editing===true){
   userBio =  (
       <form onSubmit={this.handleBioResave}>
-        <input ref="bio" type="text" defaultValue={this.state.user.bio}/>
+        <textarea ref="bio" defaultValue={this.state.user.bio}/>
         <input type="submit" value="submit"/>
       </form>
   );

@@ -21,9 +21,9 @@ export default React.createClass({
   },
   render(){
     return (
-      <div>
+      <div className="image-upload-container">
         <Dropzone ref={(node) => { this.dropzone = node; }} onDrop={this.onDrop}>
-          <div>Try dropping some files here, or click to select files to upload.</div>
+          <div>Try dropping some files here, or click to select files to upload. View Preview below.</div>
         </Dropzone>
         <input type="button" onClick={this.onOpenClick} value="Open Dropzone"/>
         <div key={this.state.file}>{this.state.files.map((file, i) => <img key={i} src={file.preview} /> )}</div>
