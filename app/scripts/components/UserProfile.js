@@ -74,7 +74,7 @@ export default React.createClass({
           <form className="bio-edit-form" onSubmit={this.handleSubmit}>
             <textarea ref="bio" placeholder="Add a Bio!"/>
             <input onClick={this.handleCancel} type="button" value="Cancel"/>
-            <input type="submit" value="submit"/>
+            <input type="submit" value="Submit"/>
           </form>
         </div>
       );

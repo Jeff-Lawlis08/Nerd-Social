@@ -1,29 +1,36 @@
 .login-form {
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
   margin-top: 3rem;
-  background: gainsboro;
+  background: $primary-color;
   padding: 1.5rem;
   input {
+    height: 40px;
     display: block;
     text-align: center;
     margin: 0.5rem auto;
     width: 100%;
     border-radius: 10px;
     &:nth-of-type(3){
+      border: 1px solid $secondary-color;
       border-radius: 0;
       width: 30%;
       margin-bottom: 5rem;
+      background: whitesmoke;
     }
+  }
+  a {
+    color: white;
   }
 }
 .register-form {
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
   margin-top: 3rem;
-  background: gainsboro;
+  background: $primary-color;
   padding: 1.5rem;
   input {
+    height: 40px;
     display: block;
     text-align: center;
     margin: 0.5rem auto;
@@ -31,10 +38,15 @@
     border-radius: 10px;
     // background: transparent;
     &:nth-of-type(5){
+      border: 1px solid $secondary-color;
       border-radius: 0;
       width: 30%;
       margin-bottom: 2rem;
+      background: whitesmoke;
     }
+  }
+  a {
+    color: white;
   }
 }
 @media (min-width: 500px) {

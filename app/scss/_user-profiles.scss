@@ -88,11 +88,13 @@
       img {
         display: none;
       }
-      button {
-        font-size: 11px;
-        font-family: $standard-font;
-        border: 1px solid black;
+      .like-dislike {
+        button {
+        border: 1px solid $secondary-color;
+        background: whitesmoke;
         border-radius: 10px;
+        font-family: $standard-font;
+        }
       }
     }
   }

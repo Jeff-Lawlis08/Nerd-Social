@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 
 export default React.createClass({
   render(){
-    if(window.localStorage.getItem('user-token')){
+    // if(window.localStorage.getItem('user-token')){
     return(
       <header>
         <Nav/>
@@ -13,14 +13,14 @@ export default React.createClass({
         </div>
       </header>
     );
-  } else {
-    return(
-      <header>
-        <Nav/>
-        <div className="bg-container">
-        </div>
-      </header>
-    );
-  }
+  // } else {
+  //   return(
+  //     <header>
+  //       <Nav/>
+  //       <div className="bg-container">
+  //       </div>
+  //     </header>
+  //   );
+  // }
 }
 });
