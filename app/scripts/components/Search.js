@@ -31,7 +31,7 @@ export default React.createClass({
     let usersSearched = this.state.users.filter((user, i, arr)=>{
       if(this.props.location.query.user){
         searchedUser = this.props.location.query.user;
-      if(user.name.indexOf(searchedUser)>-1 || user.fullName.trim().toUpperCase().indexOf(searchedUser.trim().toUpperCase())>-1){
+      if(user.name.trim().toUpperCase().indexOf(searchedUser.trim().toUpperCase())>-1 || user.fullName.trim().toUpperCase().indexOf(searchedUser.trim().toUpperCase())>-1){
         return true;
       }
     }
