@@ -35,7 +35,7 @@ export default React.createClass({
                 onStarClick={this.onStarClick}
             />
         </div>
-        <input type="submit" value="submit"/>
+        <input type="submit" value="Submit"/>
       </form>
       );
     } else {

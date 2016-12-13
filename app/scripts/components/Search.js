@@ -53,9 +53,18 @@ export default React.createClass({
     if(this.state.viewUsers===true){
       userClass = 'active-tab';
       gameClass = 'tab';
-      searchList = <UserSearchList users={usersSearched}/>
+      searchList = (
+        <main>
+          <UserSearchList users={usersSearched}/>
+        </main>
+      )
       if(usersSearched.length===0){
-        searchList = <span className="no-results">No Current Users Have Been Searched</span>
+        searchList = (
+                    <main>
+                      <h3>Users</h3>
+                      <span className="no-results">No Current Users Have Been Searched</span>
+                    </main>
+                    )
       }
     } else {
       userClass = 'tab';

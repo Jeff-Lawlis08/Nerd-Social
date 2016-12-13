@@ -54,12 +54,10 @@ export default React.createClass({
     window.setTimeout(this.updateGamesState, 7000);
     let search = this.refs.search.value;
     let searchedUser = store.users.filter((user, i, arr)=>{
-      // console.log(user.get('name').trim().toUpperCase().indexOf(("Jeffsmom").trim().toUpperCase()));
       if(user.get('name').trim().toUpperCase().indexOf(search.trim().toUpperCase())>-1 || user.get('fullName').trim().toUpperCase().indexOf(search.trim().toUpperCase())>-1){
         return user;
       }
     });
-    console.log(searchedUser);
     this.setState({users: searchedUser});
     browserHistory.push('/search/?user='+search);
     store.games.getGames(search);

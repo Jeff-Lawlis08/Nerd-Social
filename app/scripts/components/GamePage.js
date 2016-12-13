@@ -36,9 +36,9 @@ export default React.createClass({
     return (
       <div className="gamepage-contents">
         <div className="pic-and-info">
+          <h3>{this.state.game.name}</h3>
           <img src={photo}/>
           <div className="game-info">
-            <h3>{this.state.game.name}</h3>
             <h6>Overview</h6>
             <p>{overviewBody}</p>
           </div>

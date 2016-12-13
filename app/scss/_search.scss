@@ -11,16 +11,18 @@
 }
 .search-form {
   top: 11rem;
-  width: 95%;
-  margin: 0 3%;
+  width: 100%;
+  margin: 0 auto;
+  vertical-align: middle;
   input {
-    width: 90%;
-    height: 1.7rem;
+    width: 70%;
+    height: 2.4rem;
     font-size: 17px;
     border: none;
   }
   .fa {
-    height: 1.6rem;
+    padding: 7px 1px 0;
+    height: 2.4rem;
     font-size: 22px;
     background: $primary-color;
     width: 8%;
@@ -41,6 +43,7 @@
     border: 1px solid #F2F2F2;
     background: $primary-color;
     font-family: $standard-font;
+    color: white;
   }
   .tab {
     width: 35%;
@@ -74,7 +77,11 @@
 }
 
 main {
+  width: 90%;
+  background: white;
+  margin: 0 auto;
   h3{
+    margin: 0;
     color: $secondary-color;
     font-family: $subheader-font;
   &:nth-of-type(1){
@@ -90,14 +97,32 @@ main {
   padding: 5px;
   h4 {
     font-family: $subheader-font;
+    font-size: 25px;
     a {
       color: #037E8C;
     }
   }
+  .review-items{
+      a {
+        display: inline-block;
+      }
+  }
   h5 {
     font-family: $subheader-font;
-    margin: 1rem 0 3px;
-    font-size: 20px;
+    margin: 0rem 0 3px;
+    font-size: 12px;
+    display: inline-block;
+  }
+  img {
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+  }
+  p {
+    font-size: 12px;
+  }
+  span {
+    font-size: 8px;
   }
   li {
     color: #404040;
@@ -105,20 +130,18 @@ main {
   .like-dislike {
     span {
       color: $secondary-color;
+      font-size: 12px;
     }
     button {
       border: 1px solid #037E8C;
       background: whitesmoke;
       color: #024959;
-      border-radius: 10px;
-
     }
   }
   .edit-delete {
     background: #F24C27;
     color: white;
     border: 1px solid black;
-    border-radius: 10px;
     font-size: 11px
   }
 }
@@ -171,9 +194,8 @@ main {
     float: right;
     width: 50%;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    height: 100px;
+    // text-overflow: ellipsis;
+    height: 170px;
     padding: 10px;
     h6 {
       margin: 0 0 0.5rem;

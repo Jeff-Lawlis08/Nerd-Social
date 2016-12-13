@@ -66,9 +66,10 @@ export default React.createClass({
           if (user) {return (
       <li className="review-items">
         <Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>
-          <h5>{user.name}</h5>
           <img src={pic}/>
+          <h5>{user.name}</h5>
         </Link>
+        <span>   {moment(this.props.review.timestamp).format('LLLL')}</span>
         <div>
             <StarRatingComponent
                 name="rate3"
@@ -78,7 +79,6 @@ export default React.createClass({
             />
         </div>
         <p>{this.props.review.body}</p>
-        <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
         <div className="like-dislike">
           <button ref="likes" onClick={this.handleLike} type="button">
           <i className="fa fa-thumbs-up" aria-hidden="true"></i>
@@ -95,9 +95,10 @@ export default React.createClass({
     return (
       <li className="review-items">
         <Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>
-          <h5>{user.name}</h5>
           <img src={pic}/>
+          <h5>{user.name}</h5>
         </Link>
+        <span>   {moment(this.props.review.timestamp).format('LLLL')}</span>
         <div>
             <StarRatingComponent
                 name="rate2"
@@ -107,7 +108,6 @@ export default React.createClass({
             />
         </div>
         <p>{this.props.review.body}</p>
-        <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
         <div className="like-dislike">
           <span><i className="fa fa-thumbs-up" aria-hidden="true"></i>
           {likes} </span>

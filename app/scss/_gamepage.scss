@@ -1,14 +1,18 @@
 .gamepage-contents {
-  margin-top: 3rem;
+  margin: 3rem auto 0;
+  width: 90%;
 .pic-and-info {
-img {
-  max-width: 100%;
-  height: 300px;
-  text-align: center;
-  margin: 0 auto;
-  margin-left: 20%;
-//after media
-
+  h3 {
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+  }
+  img {
+    max-width: 100%;
+    height: 300px;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 16%;
 }
 &::after{
   clear: both;
@@ -62,20 +66,35 @@ img {
     border-top: 1px solid #D8D8D9;
     border-bottom: 1px solid #D8D8D9;
     h5 {
-      font-size: 20px;
+      font-size: 12px;
+      margin: 0;
+      display: inline-block;
+      width: auto;
+    }
+    img {
+      height: 50px;
+      width: 50px;
+      vertical-align: middle;
+    }
+    span {
+      font-size: 8px;
+      &:nth-of-type(1n+1){
+          font-size: 12px;
+      }
+    }
+    p {
+      font-size: 12px;
     }
     .edit-delete {
       background: #F24C27;
       color: white;
       border: 1px solid black;
-      border-radius: 10px;
     }
     .like-dislike {
       button {
         border: 1px solid #037E8C;
         background: whitesmoke;
         color: #024959;
-        border-radius: 10px;
       }
 
     }

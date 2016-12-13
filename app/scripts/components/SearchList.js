@@ -18,7 +18,7 @@ export default React.createClass({
     });
   } else {
     listTitle = 'Recent Reviews';
-    let maxItems = _.first(this.props.reviews, 5)
+    let maxItems = _.first(this.props.reviews, 10)
     allItems = maxItems.map((review, i, arr)=>{
       return (
         <div key={i} className="recent-reviews">
