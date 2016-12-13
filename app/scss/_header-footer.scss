@@ -58,13 +58,25 @@ nav {
 footer {
   background: $primary-color;
   border-top: 1px solid #F2F2F2;
-  text-align: center;
+  text-align: right;
   height: 4rem;
   margin-top: 10rem;
+  padding: 0 5% 0 5%;
+  &::after{
+    content: '';
+    clear: both;
+    display: block;
+  }
   img {
     max-width: 100%;
     width: 8%;
-
+  }
+  span {
+    float: left;
+    margin-top: 1rem;
+    a {
+      color: white;
+    }
   }
 }
 @media(min-width: 700px) {
