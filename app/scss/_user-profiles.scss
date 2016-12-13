@@ -4,7 +4,7 @@
     width: 25%;
   }
   img {
-    width: 80%;
+    width: 175px;
     height: 175px;
   }
 
@@ -19,7 +19,8 @@
     }
     input {
       &:nth-of-type(1){
-        display: block;
+        border: 1px solid #024959;
+        background: whitesmoke;
       }
     }
     .bio {
@@ -153,6 +154,7 @@
         }
       }
       .edit-bio {
+        margin-top: 65px;
         float: right;
         width: 50%;
         text-align: center;
