@@ -26,6 +26,7 @@ export default React.createClass({
       <form className="review-form" onSubmit={this.handleSubmit}>
         <h5>Write a Review</h5>
         <textarea ref="body" placeholder="What do you think of this game?"/>
+        <span>Rate This Game!</span>
         <div>
             <StarRatingComponent
                 name="rate1"

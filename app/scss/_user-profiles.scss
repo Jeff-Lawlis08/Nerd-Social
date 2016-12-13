@@ -7,35 +7,43 @@
     width: 80%;
     height: 175px;
   }
-  p {
-    input {
 
-    }
-  }
   .user-info {
     border: 1px solid $standard-border;
     padding: 10px;
     margin-top: 2rem;
+    &::after {
+      clear: both;
+      content: '';
+      display: block;
+    }
     input {
       &:nth-of-type(1){
         display: block;
       }
     }
     .bio {
+      width: 100%;
       span {
         text-decoration: underline;
+      }
+      p {
+        margin-bottom: 0;
       }
       button {
         background: #F24C27;
         color: white;
         border: 1px solid black;
         border-radius: 10px;
+        display: block;
       }
     }
-    .bio-edit-form{
+    .edit-bio{
       span {
         text-decoration: underline;
       }
+    .bio-edit-form{
+
       textarea {
         width: 100%;
         border: 1px solid gray;
@@ -48,6 +56,7 @@
         background: whitesmoke;
       }
     }
+  }
   }
   .profile-review-list {
     list-style: none;
@@ -79,7 +88,7 @@
         display: none;
       }
       button {
-        font-size: 15px;
+        font-size: 11px;
         font-family: $standard-font;
         border: 1px solid black;
         border-radius: 10px;
@@ -87,7 +96,7 @@
     }
   }
   .review-items{
-    button {
+    .edit-delete {
       background: #F24C27;
       color: white;
       border: 1px solid black;
@@ -100,6 +109,13 @@
     margin: 0 auto;
     text-align: center;
   }
+  div:nth-of-type(2) {
+    img {
+      height: 200px;
+      width: 200px;
+    }
+  }
+
   input {
       margin: 0 auto;
       text-align: center;
@@ -110,7 +126,8 @@
 @media(min-width: 450px) {
   .user-page {
     img {
-      max-width: 25%;
+      max-width: 100%;
+      // width: 70%;
     }
     &::after {
       display: block;
@@ -118,9 +135,14 @@
       clear: both;
     }
     .user-info {
-
+      .name-pic {
+        width: 50%;
+        display: inline-block;
+      }
       .bio {
+        margin-top: 65px;
         float: right;
+        width: 50%;
         p {
           display: inline-block;
         }
@@ -130,22 +152,22 @@
           text-decoration: underline;
         }
       }
-      .bio-edit-form{
-        display: inline-block;
+      .edit-bio {
         float: right;
-        width: 40%;
-        margin-right: 10%;
-        textarea {
-          width: 100%;
-        }
-        input {
+        width: 50%;
+        text-align: center;
+        .bio-edit-form{
           display: inline-block;
+          width: 100%;
+          margin-right: 10%;
+          textarea {
+            width: 100%;
+          }
+          input {
+            display: inline-block;
+          }
         }
 
-      }
-
-      img {
-        width: 60%;
       }
     }
 

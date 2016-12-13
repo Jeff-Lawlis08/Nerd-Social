@@ -18,7 +18,7 @@ export default React.createClass({
     }
     return (
       <li className="games">
-        <Link to={`/game/${this.props.game.id}`}>
+        <Link to={`/game/${this.props.game.id}`} onClick={this.handleReset}>
         <div className="game-details">
           <h6>{this.props.game.name}</h6>
           <span>{description}</span>
@@ -28,4 +28,7 @@ export default React.createClass({
       </li>
       );
   },
+  handleReset(e){
+    store.games.reset();
+  }
 });

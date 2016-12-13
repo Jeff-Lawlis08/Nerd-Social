@@ -61,19 +61,22 @@ export default React.createClass({
         <div className="bio">
           <span>Bio</span>
           <p>{this.state.user.bio}
-            <button onClick={this.handleBioEdit}>
-              <i className="fa fa-pencil-square" aria-hidden="true"></i>
-            </button>
           </p>
+          <button onClick={this.handleBioEdit}>
+            <i className="fa fa-pencil-square" aria-hidden="true"></i>
+          </button>
         </div>
       );
     } else {
       userBio = (
-        <form className="bio-edit-form" onSubmit={this.handleSubmit}>
-          <textarea ref="bio" placeholder="Add a Bio!"/>
-          <input onClick={this.handleCancel} type="button" value="Cancel"/>
-          <input type="submit" value="submit"/>
-        </form>
+        <div className="edit-bio">
+          <span>Edit Bio</span>
+          <form className="bio-edit-form" onSubmit={this.handleSubmit}>
+            <textarea ref="bio" placeholder="Add a Bio!"/>
+            <input onClick={this.handleCancel} type="button" value="Cancel"/>
+            <input type="submit" value="submit"/>
+          </form>
+        </div>
       );
     }
   } else if(this.state.owned===false){
@@ -89,20 +92,24 @@ export default React.createClass({
   }
 } else if(this.state.editing===true){
   userBio =  (
-      <form className="bio-edit-form" onSubmit={this.handleBioResave}>
+      <div className="edit-bio">
         <span>Edit Bio</span>
-        <textarea ref="bio" defaultValue={this.state.user.bio}/>
-        <input onClick={this.handleCancel} type="button" value="Cancel"/>
-        <input type="submit" value="Submit"/>
-      </form>
+        <form className="bio-edit-form" onSubmit={this.handleBioResave}>
+          <textarea ref="bio" defaultValue={this.state.user.bio}/>
+          <input onClick={this.handleCancel} type="button" value="Cancel"/>
+          <input type="submit" value="Submit"/>
+        </form>
+      </div>
   );
 }
     return (
       <div className="user-page">
         <div className="user-info">
-          <h3>{this.state.user.name}</h3>
-          <img src={photo}/>
-          {addPhoto}
+          <div className="name-pic">
+            <h3>{this.state.user.name}</h3>
+            <img src={photo}/>
+            {addPhoto}
+          </div>
           {userBio}
         </div>
         <ProfileReviews reviews={this.state.reviews} user={this.state.user}/>

@@ -13,7 +13,7 @@ export default React.createClass({
               <span className="nav-titles">My Profile</span>
               <i className="fa fa-user" aria-hidden="true"></i>
             </Link>
-            <Link to='/search'>
+            <Link to='/search' onClick={this.handleUserReset}>
               <span className="nav-titles">Search</span>
               <i className="fa fa-search" aria-hidden="true"></i>
             </Link>
@@ -47,9 +47,10 @@ export default React.createClass({
     },
     handleClick(e){
       store.session.logout();
+      store.reviews.reset();
     },
     handleUserReset(){
-      // store.user.clear();
+      store.games.reset();
       store.reviews.reset();
     }
 });

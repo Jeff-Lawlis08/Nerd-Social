@@ -38,6 +38,7 @@ export default React.createClass({
     let user;
     let likes;
     let dislikes;
+    let pic;
       if(this.props.review.likes===null || this.props.review.likes===undefined){
         likes = 0;
       } else {
@@ -55,12 +56,19 @@ export default React.createClass({
     } else {
       user = this.props.users
     }
+    if(user.pic){
+      pic=user.pic;
+    } else {
+      pic="../../assets/images/no-image.png";
+    }
     if(this.state.editing===false && this.state.owned===false){
       // console.log(this.state.owned);
           if (user) {return (
       <li className="review-items">
-        <h5><Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>{user.name}</Link></h5>
-        <img src={user.pic}/>
+        <Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>
+          <h5>{user.name}</h5>
+          <img src={pic}/>
+        </Link>
         <div>
             <StarRatingComponent
                 name="rate3"
@@ -86,8 +94,10 @@ export default React.createClass({
     else if(this.state.editing===false && this.state.owned===true){
     return (
       <li className="review-items">
-        <h5><Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>{user.name}</Link></h5>
-        <img src={user.pic}/>
+        <Link to={`/user/${user.ownerId}`} onClick={this.handleUserReset}>
+          <h5>{user.name}</h5>
+          <img src={pic}/>
+        </Link>
         <div>
             <StarRatingComponent
                 name="rate2"
@@ -99,9 +109,9 @@ export default React.createClass({
         <p>{this.props.review.body}</p>
         <span>{moment(this.props.review.timestamp).format('LLLL')}</span>
         <div className="like-dislike">
-          <span><i className="fa fa-thumbs-up" aria-hidden="true"></i>:
-          {likes}</span>
-          <span><i className="fa fa-thumbs-down" aria-hidden="true"></i>:
+          <span><i className="fa fa-thumbs-up" aria-hidden="true"></i>
+          {likes} </span>
+          <span> <i className="fa fa-thumbs-down" aria-hidden="true"></i>
           {dislikes}</span>
         </div>
         <button className="edit-delete" onClick={this.handleEdit}>

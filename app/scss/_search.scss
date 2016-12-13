@@ -103,6 +103,9 @@ main {
     color: #404040;
   }
   .like-dislike {
+    span {
+      color: $secondary-color;
+    }
     button {
       border: 1px solid #037E8C;
       background: whitesmoke;
@@ -116,6 +119,7 @@ main {
     color: white;
     border: 1px solid black;
     border-radius: 10px;
+    font-size: 11px
   }
 }
 .edit-review {
