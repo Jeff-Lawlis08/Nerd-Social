@@ -36,13 +36,15 @@
     padding: 0 5px;
   }
   .active-tab {
-    font-size: 35px;
+    width: 35%;
+    font-size: 20px;
     border: 1px solid #F2F2F2;
     background: $primary-color;
     font-family: $standard-font;
   }
   .tab {
-    font-size: 35px;
+    width: 35%;
+    font-size: 20px;
     border: 1px solid #F2F2F2;
     border-bottom: 2px solid white;
     background: white;
@@ -100,17 +102,44 @@ main {
   li {
     color: #404040;
   }
-  button {
-    font-size: 15px;
-    font-family: $standard-font;
+  .like-dislike {
+    button {
+      border: 1px solid #037E8C;
+      background: whitesmoke;
+      color: #024959;
+      border-radius: 10px;
+
+    }
+  }
+  .edit-delete {
+    background: #F24C27;
+    color: white;
     border: 1px solid black;
     border-radius: 10px;
   }
 }
 .edit-review {
   display: block;
-  width: 80%;
+  width: 100%;
   border: 1px solid #F2F2F2;
+  span {
+    display: block;
+  }
+  textarea {
+    display: block;
+    height: 73px;
+    font-size: 17px;
+    font-family: $standard-font;
+    width: 100%;
+    border: 1px solid gray;
+  }
+  div {
+    input {
+      display: inline-block;
+      border: 1px solid $secondary-color;
+      background: whitesmoke;
+    }
+  }
 }
 .game-list{
   list-style: none;

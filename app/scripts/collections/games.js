@@ -24,6 +24,9 @@ export default Backbone.Collection.extend({
         // console.log(response.results);
         this.add(this.parse(response));
       },
+      error: ()=>{
+        console.log('no games matched');
+      }
     });
   },
   parse: (data)=>{
@@ -43,6 +46,9 @@ export default Backbone.Collection.extend({
         // console.log(response.results);
         this.add(response.results);
       },
+      error: ()=>{
+        console.log('no games matched');
+      }
   });
 },
   cleanOverview(description){

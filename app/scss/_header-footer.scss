@@ -27,7 +27,8 @@ nav {
     }
   a {
     color: #037E8C;
-    margin-right: 2%;
+    text-decoration: none;
+    // margin-right: 2%;
   }
   button {
     color: #037E8C;
@@ -35,16 +36,20 @@ nav {
     background: white;
     font-family: $standard-font;
     font-size: 16px;
+    padding: 0;
   }
 }
+  .nav-buttons > * {
+    margin-right: 10%;
+  }
 }
 .bg-container{
   width: 100%;
   text-align: center;
   background:
   linear-gradient(
-      rgba(192, 192, 192, 0.5),
-      rgba(0, 0, 0, 0.5)),
+      rgba(192, 192, 192, 0.7),
+      rgba(0, 0, 0, 0.9)),
     url('../../assets/images/cropped-header.jpg');
     height: 15rem;
     background-size: cover;
@@ -65,9 +70,13 @@ footer {
 @media(min-width: 700px) {
   nav{
   .nav-buttons {
+
   .nav-titles {
     display: inline;
   }
+}
+.nav-buttons > * {
+  margin-right: 5%;
 }
 }
 }

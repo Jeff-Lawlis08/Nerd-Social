@@ -1,6 +1,6 @@
 .login-form {
   margin: 0 auto;
-  width: 36%;
+  width: 60%;
   margin-top: 3rem;
   background: gainsboro;
   padding: 1.5rem;
@@ -19,7 +19,7 @@
 }
 .register-form {
   margin: 0 auto;
-  width: 36%;
+  width: 60%;
   margin-top: 3rem;
   background: gainsboro;
   padding: 1.5rem;
@@ -35,5 +35,13 @@
       width: 30%;
       margin-bottom: 2rem;
     }
+  }
+}
+@media (min-width: 500px) {
+  .login-form {
+    width: 40%;
+  }
+  .register-form {
+    width: 40%;
   }
 }

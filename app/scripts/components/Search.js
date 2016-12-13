@@ -40,22 +40,22 @@ export default React.createClass({
     let searchList;
     let userClass;
     let gameClass;
-    let userLength;
-    let gameLength;
-    let resultsClass;
-    if(usersSearched.length>0 || this.state.games.length>0){
-      userLength = usersSearched.length;
-      gameLength = this.state.games.length;
-      resultsClass = 'active-results';
-    } else {
-      resultsClass = 'no-active-results';
-    }
+    // let userLength;
+    // let gameLength;
+    // let resultsClass;
+    // if(usersSearched.length>0 || this.state.games.length>0){
+    //   userLength = usersSearched.length;
+    //   gameLength = this.state.games.length;
+    //   resultsClass = 'active-results';
+    // } else {
+    //   resultsClass = 'no-active-results';
+    // }
     if(this.state.viewUsers===true){
       userClass = 'active-tab';
       gameClass = 'tab';
       searchList = <UserSearchList users={usersSearched}/>
       if(usersSearched.length===0){
-        searchList = <span className="no-results">Your search did not match any users</span>
+        searchList = <span className="no-results">No Current Users Have Been Searched</span>
       }
     } else {
       userClass = 'tab';
@@ -64,7 +64,6 @@ export default React.createClass({
       if(this.state.games.length===0 && usersSearched.length>=0){
         searchList = (
             <div>
-              <span className="no-results">Your search did not match any games</span>
               <SearchList games={this.state.games} reviews={this.state.reviews} users={this.state.users}/>
             </div>
         )
@@ -74,13 +73,13 @@ export default React.createClass({
     return(
       <div>
         <div className="search-tabs">
-          <button className={userClass} onClick={this.toggleUserTab}>
-            Users <span className={resultsClass}>{userLength}</span>
-            <i className="fa fa-users" aria-hidden="true"></i>
-          </button>
           <button className={gameClass} onClick={this.toggleGameTab}>
-            Games <span className={resultsClass}>{gameLength}</span>
+            Games
             <i className="fa fa-gamepad" aria-hidden="true"></i>
+          </button>
+          <button className={userClass} onClick={this.toggleUserTab}>
+            Users
+            <i className="fa fa-users" aria-hidden="true"></i>
           </button>
         </div>
         {searchList}

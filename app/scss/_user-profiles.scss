@@ -4,8 +4,7 @@
     width: 25%;
   }
   img {
-    max-width: 25%;
-    width: 300px;
+    width: 80%;
     height: 175px;
   }
   p {
@@ -14,14 +13,45 @@
     }
   }
   .user-info {
+    border: 1px solid $standard-border;
+    padding: 10px;
+    margin-top: 2rem;
     input {
       &:nth-of-type(1){
         display: block;
       }
     }
+    .bio {
+      span {
+        text-decoration: underline;
+      }
+      button {
+        background: #F24C27;
+        color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+    }
+    .bio-edit-form{
+      span {
+        text-decoration: underline;
+      }
+      textarea {
+        width: 100%;
+        border: 1px solid gray;
+        font-size: 17px;
+        font-family: $standard-font;
+      }
+      input {
+        display: inline-block;
+        border: 1px solid $secondary-color;
+        background: whitesmoke;
+      }
+    }
   }
   .profile-review-list {
     list-style: none;
+    padding-left: 0;
     h4 {
       font-family: $subheader-font;
       a {
@@ -30,7 +60,15 @@
     }
     .edit-review {
       textarea {
+        border: 1px solid gray;
         width: 100%;
+        font-size: 17px;
+        font-family: $standard-font;
+        height: 73px;
+      }
+      input {
+        border: 1px solid $secondary-color;
+        background: whitesmoke;
       }
     }
     .review-items {
@@ -71,26 +109,20 @@
 }
 @media(min-width: 450px) {
   .user-page {
-
+    img {
+      max-width: 25%;
+    }
     &::after {
       display: block;
       content: '';
       clear: both;
     }
     .user-info {
-      border: 1px solid $standard-border;
-      padding: 10px;
-      margin-top: 2rem;
+
       .bio {
         float: right;
         p {
           display: inline-block;
-          button {
-            background: #F24C27;
-            color: white;
-            border: 1px solid black;
-            border-radius: 10px;
-          }
         }
         span {
           display: block;

@@ -7,8 +7,8 @@ export default React.createClass({
     return(
       <div>
         <h2>Page Not Found</h2>
-        <Link to="/login">Need to Login?</Link>
-        <Link to="/search">Need to search?</Link>
+        <h4><Link to="/login">Need to Login?</Link></h4>
+        <h4><Link to="/search">Need to Search?</Link></h4>
       </div>
     )
   }

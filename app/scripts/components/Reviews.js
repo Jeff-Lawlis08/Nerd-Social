@@ -11,7 +11,7 @@ export default React.createClass({
     if(store.reviews.length<=0){
     return {
       reviews: [],
-      users: []
+      users: [],
     }
   } else {
     return {reviews: store.reviews.toJSON(), users: store.users.toJSON()}
@@ -29,6 +29,7 @@ export default React.createClass({
     store.users.off('update change', this.updateState);
   },
   render(){
+    console.log(this.state.reviews);
     let avgRating = store.reviews.getAvg(this.props.game.id, this.state.reviews);
     let reviewList = this.state.reviews.filter((review, i, arr)=>{
       if(review.gameId===Number(this.props.game.id)){
@@ -61,7 +62,7 @@ export default React.createClass({
   updateState(){
     this.setState({
       reviews: store.reviews.toJSON(),
-      users: store.users.toJSON()
+      users: store.users.toJSON(),
     });
   }
 });

@@ -37,7 +37,7 @@ export default React.createClass({
               Register
             </Link>
             <Link to='/search'>
-              Search
+              <span className="nav-titles">Search</span>
               <i className="fa fa-search" aria-hidden="true"></i>
             </Link>
           </div>

@@ -13,7 +13,7 @@ export default React.createClass({
     return {
       editing: false,
       owned: false,
-      rating: 1
+      rating: Number(this.props.review.rating)
     }
   },
   componentWillMount(){
@@ -114,6 +114,9 @@ export default React.createClass({
     );
   } else if(this.state.editing=true){
       return (
+          <div className="review-items">
+            <h5>{user.name}</h5>
+            <img src={user.pic}/>
             <form className="edit-review" onSubmit={this.handleSubmit}>
               <span>Edit Your Review</span>
               <textarea ref="body" defaultValue={this.props.review.body}/>
@@ -123,9 +126,12 @@ export default React.createClass({
                   value={Number(this.props.review.rating)}
                   onStarClick={this.onStarClick}
               />
-              <input onClick={this.handleCancel} type="button" value="Cancel"/>
-              <input type="submit" value="Submit"/>
+              <div>
+                <input onClick={this.handleCancel} type="button" value="Cancel"/>
+                <input type="submit" value="Submit"/>
+              </div>
             </form>
+          </div>
 
       );
     }

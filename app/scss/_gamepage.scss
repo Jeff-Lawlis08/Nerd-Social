@@ -3,9 +3,12 @@
 .pic-and-info {
 img {
   max-width: 100%;
-  width: 47%;
-  margin-right: 3%;
-  height: 500px;
+  height: 300px;
+  text-align: center;
+  margin: 0 auto;
+  margin-left: 20%;
+//after media
+
 }
 &::after{
   clear: both;
@@ -13,10 +16,7 @@ img {
   display: block;
 }
 .game-info {
-  float: right;
-  display: inline-block;
-  width: 47%;
-  margin-left: 3%;
+
   &:after{
     clear: both;
     content: '';
@@ -40,35 +40,48 @@ img {
 .review-form {
   textarea {
     width: 100%;
-    font-size: 15px;
+    font-size: 17px;
     height: 7rem;
+    font-family: $standard-font;
+    border: 1px solid gray;
   }
   input {
-    &:nth-of-type(1){
       width: 20%;
       display: block;
       margin-bottom: 0.2rem;
-    }
-    &:nth-of-type(2){
-      background-color: #037E8C;
-      color: #D8D8D9;
-      border: none;
-    }
+      border: 1px solid $secondary-color;
+      background: whitesmoke;
+
   }
 }
 .user-reviews {
   list-style: none;
+  padding-left: 0;
   .review-items {
     border-top: 1px solid #D8D8D9;
     border-bottom: 1px solid #D8D8D9;
     h5 {
-      margin: 0 0 1rem;
       font-size: 20px;
+    }
+    .edit-delete {
+      background: #F24C27;
+      color: white;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+    .like-dislike {
+      button {
+        border: 1px solid #037E8C;
+        background: whitesmoke;
+        color: #024959;
+        border-radius: 10px;
+      }
+
     }
   }
   .edit-review{
     width: 100%;
-    height: 6rem;
+
 
   }
 }
@@ -76,8 +89,40 @@ img {
     .edit-review {
       textarea {
         width: 100%;
+        font-size: 17px;
+        height: 73px;
+        font-family: $standard-font;
+        border: 1px solid gray;
+      }
+      div {
+        input {
+          border: 1px solid #024959;
+          background: whitesmoke;
+        }
       }
 }
 
 }
+}
+@media (min-width: 500px) {
+  .gamepage-contents {
+  .pic-and-info{
+    img {
+      max-width: 100%;
+      width: 47%;
+      margin-right: 3%;
+      height: 500px;
+      margin-left: 0;
+    }
+    .game-info {
+      float: right;
+      display: inline-block;
+      width: 47%;
+      margin-left: 3%;
+    }
+  }
+}
+  .user-reviews {
+    margin: 0 0 1rem;
+  }
 }

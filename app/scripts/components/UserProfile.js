@@ -90,6 +90,7 @@ export default React.createClass({
 } else if(this.state.editing===true){
   userBio =  (
       <form className="bio-edit-form" onSubmit={this.handleBioResave}>
+        <span>Edit Bio</span>
         <textarea ref="bio" defaultValue={this.state.user.bio}/>
         <input onClick={this.handleCancel} type="button" value="Cancel"/>
         <input type="submit" value="Submit"/>

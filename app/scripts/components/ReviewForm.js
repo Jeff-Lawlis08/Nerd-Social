@@ -9,12 +9,12 @@ export default React.createClass({
       if(window.localStorage.getItem('user-token')){
         return {
           authenticated: true,
-          rating: 1
+          rating: 0
         }
       } else {
       return {
         authenticated: false,
-        rating: 1
+        rating: 0
       }
     }
   },

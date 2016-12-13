@@ -25,12 +25,13 @@ export default Backbone.Collection.extend({
   },
   getAvg(gameId, reviews){
     let ratings = reviews.filter((review, i, arr)=>{
-      if(review.gameId===gameId){
+      if(Number(review.gameId)===Number(gameId)){
         return review;
       }
     }).map((review, i, arr)=>{
       return Number(review.rating);
     });
+    console.log(ratings);
     let sum = ratings.reduce(function(a, b){
       return (a+b);
     }, 0);

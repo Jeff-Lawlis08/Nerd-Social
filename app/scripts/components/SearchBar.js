@@ -13,11 +13,11 @@ export default React.createClass({
   },
   componentDidMount(){
     store.users.fetch();
-    store.users.on('update change', this.updateUsersState);
+    // store.users.on('update change', this.updateUsersState);
     store.games.on('update change', this.updateGamesState);
   },
   componentWillUnmount(){
-    store.users.off('update change', this.updateUsersState);
+    // store.users.off('update change', this.updateUsersState);
     store.games.off('update change', this.updateGamesState);
 
   },
@@ -25,7 +25,12 @@ export default React.createClass({
     let loadingIcon;
     if(this.state.loading===true){
       loadingIcon = <span>Searching... <i className="fa fa-cog fa-spin" aria-hidden="true"></i></span>
+    } else if(this.state.loading===false){
+      loadingIcon = <span>{this.state.games.length} Games and {this.state.users.length} Users Matched Your Search</span>
     }
+    //else if(this.state.loading===false && store.games.length>=1){
+    //   loadingIcon = <span
+    // }
     return(
         <div className="searchbar-container">
           <form className="search-form" onSubmit={this.handleSearch}>
@@ -37,7 +42,7 @@ export default React.createClass({
     );
   },
   updateUsersState(){
-    this.setState({users: store.users.toJSON()});
+    // this.setState({users: store.users.toJSON()});
   },
   updateGamesState(){
     this.setState({games: store.games.toJSON(), loading: false})
@@ -53,6 +58,7 @@ export default React.createClass({
         return user;
       }
     });
+    this.setState({users: searchedUser});
     browserHistory.push('/search/?user='+search);
     store.games.getGames(search);
     this.refs.search.value=''
