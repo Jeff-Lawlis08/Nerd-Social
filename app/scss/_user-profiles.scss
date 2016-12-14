@@ -12,7 +12,6 @@
 
   .user-info {
     border: 1px solid $standard-border;
-    padding: 10px;
     margin-top: 2rem;
     &::after {
       clear: both;
@@ -196,12 +195,9 @@
       .profile-review-title {
         border-bottom: 1px solid #F2F2F2;
         padding-bottom: 1rem;
-        padding-left: 5%;
       }
     }
-      .profile-review-list > div{
-        padding-left: 5%;
-      }
+
 
 
   }
