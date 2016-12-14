@@ -45,6 +45,9 @@
     background: $primary-color;
     font-family: $standard-font;
     color: white;
+    .fa {
+      padding-left: 10px;
+    }
   }
   .tab {
     width: 35%;
@@ -53,6 +56,9 @@
     border-bottom: 2px solid white;
     background: white;
     font-family: $standard-font;
+    .fa {
+      padding-left: 10px;
+    }
   }
 }
 .user-list {

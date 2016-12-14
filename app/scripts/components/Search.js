@@ -15,7 +15,7 @@ export default React.createClass({
   },
   componentDidMount(){
     store.reviews.fetch({url: 'https://api.backendless.com/v1/data/reviews?pageSize=50'});
-    store.users.fetch();
+    store.users.fetch({url: 'https://api.backendless.com/v1/data/users?pageSize=50'});
     store.games.on('update change', this.updateState);
     store.reviews.on('update change', this.updateState);
     store.users.on('update change', this.updateState);
