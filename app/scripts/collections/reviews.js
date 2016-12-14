@@ -31,7 +31,6 @@ export default Backbone.Collection.extend({
     }).map((review, i, arr)=>{
       return Number(review.rating);
     });
-    console.log(ratings);
     let sum = ratings.reduce(function(a, b){
       return (a+b);
     }, 0);

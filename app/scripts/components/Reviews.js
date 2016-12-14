@@ -20,7 +20,6 @@ export default React.createClass({
   componentDidMount(){
     store.reviews.fetch();
     store.users.fetch();
-    // console.log(store.users);
     store.reviews.on('update change', this.updateState);
     store.users.on('update change', this.updateState);
   },
