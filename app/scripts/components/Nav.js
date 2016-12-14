@@ -7,7 +7,7 @@ export default React.createClass({
       if(window.localStorage.getItem('user-token')){
       return(
         <nav>
-          <h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1>
+          <Link to="/search"><h1><i className="fa fa-gamepad" aria-hidden="true"></i> Nerd Social</h1></Link>
           <div className="nav-buttons">
             <Link to={`/user/${window.localStorage.getItem('ownerId')}`} onClick={this.handleUserReset}>
               <span className="nav-titles">My Profile</span>
